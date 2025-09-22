@@ -98,13 +98,13 @@ const OpenPositions = () => {
         <div className="flex justify-center gap-4 mt-6">
           <button
             onClick={() => sliderRef?.slickPrev()}
-            className="w-10 h-10 flex items-center justify-center rounded-md bg-[#00A699] text-white"
+            className="w-10 h-10 flex items-center justify-center rounded-md bg-[#00A699] text-white cursor-pointer"
           >
             <ChevronLeft />
           </button>
           <button
             onClick={() => sliderRef?.slickNext()}
-            className="w-10 h-10 flex items-center justify-center rounded-md bg-[#00A699] text-white"
+            className="w-10 h-10 flex items-center justify-center rounded-md bg-[#00A699] text-white cursor-pointer"
           >
             <ChevronRight />
           </button>

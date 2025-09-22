@@ -30,6 +30,14 @@ const staticPages: Record<
     title: "Gallery",
     image: "/images/5c6d76b502d389f5b8feb6209d326f06.png",
   },
+    terms: {
+    title: "TERMS OF USE",
+    image: "/images/5c6d76b502d389f5b8feb6209d326f06.png",
+  },
+    privacy: {
+    title: "PRIVACY POLICY",
+    image: "/images/5c6d76b502d389f5b8feb6209d326f06.png",
+  },
 
   "1": { title: "Air Flight", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
   "2": { title: "Truck Flight", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },

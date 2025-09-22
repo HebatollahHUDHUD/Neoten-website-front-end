@@ -78,7 +78,7 @@ export default function TransportServices() {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 bg-blue-600 text-white py-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 bg-[#0066CC] text-white py-10 max-w-6xl mx-auto">
         {stats.map((stat, idx) => (
           <div key={idx} className="text-center">
             <p className="text-2xl md:text-3xl font-bold">{stat.number}</p>
