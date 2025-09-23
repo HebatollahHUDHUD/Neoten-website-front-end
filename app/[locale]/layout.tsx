@@ -19,7 +19,7 @@ const metadata: Metadata = {
   title: t("title"),
   description: t("description"),
   icons: {
-      icon: "/Logo.svg",
+      icon: "/images/Logo Icon.png",
     },
 };
 return metadata;
