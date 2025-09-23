@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
-
+import { useParams } from "next/navigation";
 const LogisticsIntroduction = () => {
+  const { locale } = useParams<{ locale: string }>();
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch max-w-4xl mx-auto my-8">
       
@@ -58,16 +60,30 @@ const LogisticsIntroduction = () => {
           />
         </div>
 
-        <div className="absolute -bottom-10 md:bottom-0 right-8 md:-right-40">
+ <div className={`absolute -bottom-10 md:-bottom-16 
+    ${locale === "ar" ? "left-8 lg:-left-20 xl:-left-40" : "right-8 lg:-right-20 xl:-right-40"}
+  `}>
           <Image
             src="/images/Rectangle 147.png"
-            alt=""
+            alt="white box"
             width={350}
-            height={20}
+            height={200}
             className="object-contain"
             priority
           />
+
+          {/* اللوجو داخل البوكس */}
+          <div className="absolute inset-0 flex justify-center items-center">
+            <Image
+              src="/Group 4461.svg" 
+              alt="logo"
+              width={200}
+              height={80}
+              className="object-contain"
+            />
+          </div>
         </div>
+
       </div>
 
     </section>
