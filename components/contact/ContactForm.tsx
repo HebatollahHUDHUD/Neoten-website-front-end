@@ -1,9 +1,11 @@
 "use client";
-
+import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 const ContactForm = () => {
 const [submitted, setSubmitted] = useState(false);
-
+const t = useTranslations();
+const { locale } = useParams<{ locale: string }>(); 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
@@ -22,13 +24,13 @@ const [submitted, setSubmitted] = useState(false);
         {/* Full Name */}
         <div>
           <label htmlFor="fullName" className="block text-lg font-bold text-black">
-            Full Name
+            {t("full-name")}
           </label>
           <input
             type="text"
             id="fullName"
             name="fullName"
-            placeholder="Full Name"
+            placeholder={t("full-name")}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] shadow-sm  sm:text-sm p-3"
           />
@@ -37,13 +39,13 @@ const [submitted, setSubmitted] = useState(false);
         {/* Email */}
         <div>
           <label htmlFor="email" className="block text-lg font-bold text-black">
-            Email
+            {t("email-address")}
           </label>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="Email"
+            placeholder={t("email-address")}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] shadow-sm  sm:text-sm p-3"
           />
@@ -52,13 +54,13 @@ const [submitted, setSubmitted] = useState(false);
         {/* Subject */}
         <div>
           <label htmlFor="subject" className="block text-lg font-bold text-black">
-            Subject
+            {t("subject")}
           </label>
           <input
             type="text"
             id="subject"
             name="subject"
-            placeholder="Subject"
+            placeholder={t("subject")}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] sm:text-sm p-3"
           />
@@ -67,12 +69,12 @@ const [submitted, setSubmitted] = useState(false);
         {/* Message */}
         <div>
           <label htmlFor="message" className="block text-lg font-bold text-black">
-            Message
+            {t("message")}
           </label>
           <textarea
             id="message"
             name="message"
-            placeholder="Message"
+            placeholder={t("message")}
             rows={4}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] sm:text-sm p-3"
@@ -85,7 +87,7 @@ const [submitted, setSubmitted] = useState(false);
           type="submit"
           className="w-44 bg-[#0066CC] text-white py-2 px-4 rounded-md hover:bg-gray-800 transition cursor-pointer items-center"
         >
-          Submit
+          {t("submit")}
         </button>
         </div>
       </form>

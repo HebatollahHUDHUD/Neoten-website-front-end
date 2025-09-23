@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import AOSInit from "@/components/AOSInit";
 import { Toaster } from "react-hot-toast";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
-// import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 import { FontProvider } from "@/providers/font";
 import { getTranslations } from "next-intl/server";
 import Footer from "@/components/layout/Footer";
@@ -34,7 +34,7 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
-    // notFound();
+    notFound();
   }
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>

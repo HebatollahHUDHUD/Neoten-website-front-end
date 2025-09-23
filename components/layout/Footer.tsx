@@ -10,46 +10,62 @@ const Footer = () => {
     <footer className="bg-[#1B4065] text-white py-5">
       <div className="md:max-w-7xl mx-auto flex flex-col justify-center items-center">
         <div className="flex flex-row justify-center items-center gap-14 lg:gap-52 py-5 order-2 md:order-1">
-          <div className="flex flex-col gap-2 place-items-center">
-          <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
-            <Image
+      {/* Phone */}
+      <Link
+        href="tel:0790000000"
+        className="flex flex-col gap-2 place-items-center"
+      >
+        <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
+          <Image
             src="/call.svg"
             alt="call"
             width={20}
             height={20}
             quality={100}
             className="object-contain"
-             />
-          </div>
-          <p className="font-normal text-sm">0790000000</p>
-          </div>
-          <div className="flex flex-col gap-2 place-items-center">
-          <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
-            <Image
+          />
+        </div>
+        <p className="font-normal text-sm">0790000000</p>
+      </Link>
+
+      {/* Email */}
+      <Link
+        href="mailto:Info@newton.com"
+        className="flex flex-col gap-2 place-items-center"
+      >
+        <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
+          <Image
             src="/mail.svg"
-            alt="call"
+            alt="mail"
             width={28}
             height={20}
             quality={100}
             className="object-contain"
-             />
-          </div>
-          <p className="font-normal text-sm">Info@newton.com</p>
-          </div>
-          <div className="flex flex-col gap-2 place-items-center">
-          <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
-            <Image
+          />
+        </div>
+        <p className="font-normal text-sm">Info@newton.com</p>
+      </Link>
+
+      {/* Location */}
+      <Link
+        href="https://www.google.com/maps/place/Amman,+Jordan"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex flex-col gap-2 place-items-center"
+      >
+        <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
+          <Image
             src="/location.svg"
-            alt="call"
+            alt="location"
             width={20}
             height={20}
             quality={100}
             className="object-contain"
-             />
-          </div>
-          <p className="font-normal text-sm">Amman, Jordan</p>
-          </div>
+          />
         </div>
+        <p className="font-normal text-sm">Amman, Jordan</p>
+      </Link>
+    </div>
         <div className="border-y-2 border-[#ADD5FF99] py-7 w-full order-1 md:order-2">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 max-w-5xl mx-auto gap-6 lg:gap-10">
     
@@ -66,24 +82,31 @@ const Footer = () => {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
       </p>
       <div className="flex flex-row justify-start gap-5">
-        {[
-          { src: "/face.svg", alt: "facebook", w:11 },
-          { src: "/x.svg", alt: "x", w:17 },
-          { src: "/in.svg", alt: "instagram", w:17 },
-          { src: "/you.svg", alt: "youtube", w:17 }
-        ].map((icon, idx) => (
-          <div key={idx} className="bg-[#193d60] rounded-full w-10 h-10 flex justify-center items-center cursor-pointer">
-            <Image
-              src={icon.src}
-              alt={icon.alt}
-              width={icon.w}
-              height={20}
-              quality={100}
-              className="object-contain"
-            />
-          </div>
-        ))}
+  {[
+    { src: "/face.svg", alt: "facebook", w: 11, href: "https://facebook.com" },
+    { src: "/x.svg", alt: "x", w: 17, href: "https://x.com" },
+    { src: "/in.svg", alt: "instagram", w: 17, href: "https://instagram.com" },
+    { src: "/you.svg", alt: "youtube", w: 17, href: "https://youtube.com" }
+  ].map((icon, idx) => (
+    <Link
+      key={idx}
+      href={icon.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-[#193d60] rounded-full w-10 h-10 flex justify-center items-center cursor-pointer"
+    >
+      <Image
+        src={icon.src}
+        alt={icon.alt}
+        width={icon.w}
+        height={20}
+        quality={100}
+        className="object-cover"
+      />
+    </Link>
+  ))}
       </div>
+
     </div>
 
     {/* Site Map */}
@@ -143,7 +166,7 @@ const Footer = () => {
         />
         <button
           className={`absolute top-0 h-full bg-[#00A699] px-4 font-semibold text-xs cursor-pointer ${
-            locale === "ar" ? "left-0 rounded-s-md" : "right-0 rounded-e-md"
+            locale === "ar" ? "left-0 rounded-e-md" : "right-0 rounded-e-md"
           }`}
         >
           {t("submit")}

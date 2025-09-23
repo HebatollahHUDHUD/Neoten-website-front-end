@@ -1,8 +1,7 @@
 "use client";
-
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
-
 const faqs = [
   { 
     question: "What is Cargo?",
@@ -24,7 +23,7 @@ const faqs = [
 
 const FAQs = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
+  const { locale } = useParams<{ locale: string }>();
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -43,7 +42,11 @@ const FAQs = () => {
             <div
               key={index}
               className={`p-4 shadow-md transition-all duration-300 
-                ${isOpen ? "bg-[#0066CC] border-l-[10px] border-l-[#00A699] text-[#EBEBEB] " : "bg-[#E7F2F1] border-l-[15px] border-l-transparent"}`}
+                ${isOpen ?
+                   locale ==="ar" ?
+                    "bg-[#0066CC] border-r-[10px] border-r-[#00A699] text-[#EBEBEB] "
+                    : "bg-[#0066CC] border-l-[10px] border-l-[#00A699] text-[#EBEBEB] "
+                    : "bg-[#E7F2F1] border-l-[15px] border-l-transparent"}`}
             >
               <button
                 onClick={() => toggle(index)}

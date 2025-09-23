@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
+import { useTranslations } from "next-intl";
 type Service = {
   id: number;
   title: string;
@@ -30,6 +30,8 @@ const services: Service[] = [
 export default function ServiceDetails() {
   const params = useParams();
   const router = useRouter();
+  const t = useTranslations();
+  const { locale } = useParams<{ locale: string }>();
   const id = Number(params?.id);
   const service = services.find((s) => s.id === id);
   const [submitted, setSubmitted] = useState(false);
@@ -104,7 +106,7 @@ export default function ServiceDetails() {
         </div>
         
         <div className="relative w-full mt-6">
-          <section className="mb-14 max-w-4xl mx-auto bg-[#E6F4F2] shadow-[#00000029] rounded-2xl py-8 px-10">
+          <section className="mb-14 max-w-4xl mx-auto bg-[#E7EDF4] shadow-[#00000029] rounded-2xl py-8 px-10">
             <h1 className="font-bold text-3xl text-center uppercase max-w-xs mx-auto">WE ARE EAGER TO HELP YOU</h1>
             <p className="font-semibold text-[#666666] text-sm text-center max-w-lg mx-auto pt-3">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -113,13 +115,13 @@ export default function ServiceDetails() {
         {/* Full Name */}
         <div>
           <label htmlFor="fullName" className="block text-lg font-bold text-black">
-            Full Name
+            {t("full-name")}
           </label>
           <input
             type="text"
             id="fullName"
             name="fullName"
-            placeholder="Full Name"
+            placeholder={t("full-name")}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] shadow-sm  sm:text-sm p-3"
           />
@@ -128,13 +130,13 @@ export default function ServiceDetails() {
         {/* Email */}
         <div>
           <label htmlFor="email" className="block text-lg font-bold text-black">
-            Email Address
+            {t("email-address")}
           </label>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="Email Address"
+            placeholder={t("email-address")}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] shadow-sm  sm:text-sm p-3"
           />
@@ -143,13 +145,13 @@ export default function ServiceDetails() {
         {/* Subject */}
         <div>
           <label htmlFor="subject" className="block text-lg font-bold text-black">
-            Subject
+            {t("subject")}
           </label>
           <input
             type="text"
             id="subject"
             name="subject"
-            placeholder="Subject"
+            placeholder={t("subject")}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] sm:text-sm p-3"
           />
@@ -158,12 +160,12 @@ export default function ServiceDetails() {
         {/* Message */}
         <div>
           <label htmlFor="message" className="block text-lg font-bold text-black">
-            Message
+            {t("message")}
           </label>
           <textarea
             id="message"
             name="message"
-            placeholder="Message"
+            placeholder= {t("message")}
             rows={4}
             required
             className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] sm:text-sm p-3"
@@ -176,7 +178,7 @@ export default function ServiceDetails() {
           type="submit"
           className="w-44 bg-[#0066CC] text-white py-2 px-4 rounded-md hover:bg-gray-800 transition cursor-pointer items-center"
         >
-          Submit
+          {t("submit")}
         </button>
         </div>
       </form>

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 const slides = [
   {
     src: "/images/Rectangle 69.png",
@@ -10,7 +11,7 @@ const slides = [
     desc: "LOGISTICS. INNOVATION. TECHNOLOGY.",
   },
  {
-    src: "/images/Rectangle 69.png",
+    src: "/images/99b3066d3d364243ac0bfb4f7c565c5d.png",
     title: "POWER BEYOND CARGO",
     desc: "LOGISTICS. INNOVATION. TECHNOLOGY.",
   },
@@ -23,6 +24,8 @@ const slides = [
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const { locale } = useParams<{ locale: string }>(); 
+  const t = useTranslations();
 
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -32,8 +35,19 @@ export default function HeroSlider() {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
+  //   useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     locale === "ar"
+  //       ? prevSlide() 
+  //       : nextSlide(); 
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, [locale]);
+
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden"
+    dir={locale === "ar" ? "rtl" : "ltr"}
+    >
       {/* Slides */}
       <div
         className="flex transition-transform duration-700 ease-in-out h-full"
@@ -62,11 +76,11 @@ export default function HeroSlider() {
     <p className="font-bold text-4xl md:text-6xl mb-6">{slide.desc}</p>
   </div>
 
-  <div className="absolute mt-64 left-0 flex items-center w-64">
+  <div className={`absolute mt-64 flex items-center w-64 ${locale === "ar" ? "right-0" : "left-0"}`}>
     <div className="flex-1 border-t border-gray-400"></div>
     <button className="relative w-16 h-16 bg-[#00A699] rounded-full hover:bg-[#008578] transition cursor-pointer">
-    <p className="absolute left-5 bottom-5 font-normal text-white">
-        Explore
+    <p className={`absolute  bottom-5 font-normal text-white ${locale === "ar" ? "right-5" :"left-5"}`}>
+        {t("explore")}
     </p>
     </button>
   </div>
@@ -78,7 +92,7 @@ export default function HeroSlider() {
 
       {/* Arrows */}
       <button
-        onClick={prevSlide}
+        onClick={locale === "ar" ? nextSlide: prevSlide}
         className="absolute top-1/2 left-0 md:left-6 -translate-y-1/2 p-3 cursor-pointer transition"
       >
         <Image
@@ -90,7 +104,7 @@ export default function HeroSlider() {
               />
       </button>
       <button
-        onClick={nextSlide}
+        onClick={locale === "ar" ? prevSlide : nextSlide}
         className="absolute top-1/2 right-0 md:right-6 -translate-y-1/2 p-3 cursor-pointer transition"
       >
          <Image
@@ -103,7 +117,7 @@ export default function HeroSlider() {
       </button>
 
       {/* Counter */}
-      <div className="absolute bottom-6 right-6 bg-transparent flex items-end gap-2">
+      <div className={`absolute bottom-6  bg-transparent flex items-end gap-2 ${locale === "ar" ? "left-6" : "right-6"}`}>
   <span className="text-white text-5xl font-bold leading-none">
     0{current + 1}
   </span>

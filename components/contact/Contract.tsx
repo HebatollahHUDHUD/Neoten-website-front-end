@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 const Contact = () => {
+  const t = useTranslations();
     return(
         <section className="my-14">
             <p className="font-semibold text-[#00A699] text-sm text-center uppercase">ALWAYS AHEAD</p>
@@ -17,7 +19,7 @@ const Contact = () => {
                          />
                       </div>
                       <div className="flex flex-col items-center pt-5">
-                      <p className="font-medium text-lg">Phone Number</p>
+                      <p className="font-medium text-lg">{t("phone-number")}</p>
                       <p className="font-normal text-sm">0790000000</p>
                       </div>
                       </div>
@@ -33,7 +35,7 @@ const Contact = () => {
                          />
                       </div>
                       <div className="flex flex-col items-center pt-5">
-                      <p className="font-medium text-lg">Email Address</p>
+                      <p className="font-medium text-lg">{t("email-address")}</p>
                       <p className="font-normal text-sm">Info@newton.com</p>
                       </div>
                       </div>
@@ -49,7 +51,7 @@ const Contact = () => {
                          />
                       </div>
                       <div className="flex flex-col items-center pt-5">
-                      <p className="font-medium text-lg">Location</p>
+                      <p className="font-medium text-lg">{t("location")}</p>
                       <p className="font-normal text-sm">Amman, Jordan</p>
                       </div>
                       </div>

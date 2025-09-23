@@ -1,7 +1,8 @@
 "use client";
 import PageHeader from "@/components/common/pageHeader";
 import { notFound, useRouter } from "next/navigation";
-
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 const jobs = [
   {
     id: 1,
@@ -52,6 +53,8 @@ type JobDetailsProps = {
 export default function JobDetails({ params }: JobDetailsProps) {
   const job = jobs.find((j) => j.id.toString() === params.id);
    const router = useRouter();
+     const t = useTranslations();
+  const { locale } = useParams<{ locale: string }>();
 
   if (!job) {
     notFound();
@@ -67,7 +70,7 @@ export default function JobDetails({ params }: JobDetailsProps) {
               onClick={() => router.back()}
               className="font-semibold text-[#00A699] underline text-start cursor-pointer mb-5"
             >
-                 BACK TO CAREER
+                 {t("back-to-career")}
             </button>
           <h1 className="text-4xl font-bold ">{job?.title}</h1>
           <span className="text-[#0066CC] font-bold text-lg block mt-2">
@@ -82,8 +85,8 @@ export default function JobDetails({ params }: JobDetailsProps) {
 
         {/* الكول الثاني */}
         <div className="col-span-1 place-content-center">
-  <div className="bg-[#E6F4F2] shadow-[#00000029] rounded-2xl py-6 px-10 max-w-xl mx-auto">
-    <h1 className="text-3xl font-bold mb-7 text-center">APPLICATION</h1>
+  <div className="bg-[#F0F0F0] shadow-[#00000029] rounded-2xl py-6 px-10 max-w-xl mx-auto">
+    <h1 className="text-3xl font-bold mb-7 text-center">{t("application")}</h1>
     <form className="flex flex-col gap-4">
       {/* First & Last Name */}
       <div className="flex flex-row justify-center gap-5">
@@ -92,12 +95,12 @@ export default function JobDetails({ params }: JobDetailsProps) {
             htmlFor="firstName"
             className="block text-lg font-semibold text-black"
           >
-            First Name
+            {t("firstname")}
           </label>
           <input
             type="text"
             id="firstName"
-            placeholder="First Name"
+            placeholder={t("firstname")}
             className="mt-1 block w-full rounded-md bg-white text-[#333] shadow-sm sm:text-sm p-3"
             required
           />
@@ -107,12 +110,12 @@ export default function JobDetails({ params }: JobDetailsProps) {
             htmlFor="lastName"
             className="block text-lg font-semibold text-black"
           >
-            Last Name
+            {t("last-name")}
           </label>
           <input
             type="text"
             id="lastName"
-            placeholder="Last Name"
+            placeholder={t("last-name")}
             className="mt-1 block w-full rounded-md bg-white text-[#333] shadow-sm sm:text-sm p-3"
             required
           />
@@ -125,12 +128,12 @@ export default function JobDetails({ params }: JobDetailsProps) {
           htmlFor="email"
           className="block text-lg font-semibold text-black"
         >
-          Email Address
+          {t("email-address")}
         </label>
         <input
           type="email"
           id="email"
-          placeholder="Enter Email Address"
+          placeholder={t("email-address")}
           className="mt-1 block w-full rounded-md bg-white text-[#333] shadow-sm sm:text-sm p-3"
           required
         />
@@ -142,12 +145,12 @@ export default function JobDetails({ params }: JobDetailsProps) {
           htmlFor="phone"
           className="block text-lg font-semibold text-black"
         >
-          Phone Number
+          {t("phone-number")}
         </label>
         <input
           type="tel"
           id="phone"
-          placeholder="Enter Phone Number"
+          placeholder={t("phone-number")}
           className="mt-1 block w-full rounded-md bg-white text-[#333] shadow-sm sm:text-sm p-3"
           required
         />
@@ -160,12 +163,12 @@ export default function JobDetails({ params }: JobDetailsProps) {
           htmlFor="experience"
           className="block text-lg font-semibold text-black"
         >
-          Years of Experience
+          {t("years-of-experience")}
         </label>
         <input
           type="number"
           id="experience"
-          placeholder="e.g. 5"
+          placeholder={t("e-g-5")}
           className="mt-1 block w-full rounded-md bg-white text-[#333] shadow-sm sm:text-sm p-3"
         />
       </div>
@@ -178,12 +181,12 @@ export default function JobDetails({ params }: JobDetailsProps) {
           htmlFor="coverLetter"
           className="block text-lg font-semibold text-black"
         >
-          Cover Letter
+          {t("cover-letter")}
         </label>
         <textarea
           id="coverLetter"
           rows={4}
-          placeholder="Write your cover letter"
+          placeholder={t("cover-letter")}
           className="mt-1 block w-full rounded-md bg-white text-[#333] shadow-sm sm:text-sm p-3"
         ></textarea>
       </div>
@@ -192,7 +195,7 @@ export default function JobDetails({ params }: JobDetailsProps) {
       {/* Upload CV */}
       <div>
   <label className="block text-lg font-semibold text-black mb-3">
-    CV
+    {t("cv")}
   </label>
 
   <div>
@@ -205,7 +208,7 @@ export default function JobDetails({ params }: JobDetailsProps) {
       htmlFor="cvUpload"
       className="inline-block ps-14 py-3 w-48 bg-[#0066CC] text-white font-medium rounded-lg cursor-pointer hover:bg-[#1868b7] transition"
     >
-      Attach File
+      {t("attach-file")}
     </label>
   </div>
 </div>
@@ -217,7 +220,7 @@ export default function JobDetails({ params }: JobDetailsProps) {
         type="submit"
         className="mt-4 px-6 py-3 w-44 font-semibold bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition"
       >
-        submit
+        {t("submit")}
       </button>
       </div>
     </form>

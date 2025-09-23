@@ -128,7 +128,7 @@ useEffect(() => {
 
         {/* Mobile menu button */}
         <button
-          className={`xl:hidden p-3 rounded-md  cursor-pointer ${isHome ? "text-white":"text-black"}`}
+          className={`xl:hidden p-3 rounded-md cursor-pointer ${isHome ? scrolled ? "text-black": "text-white":"text-black"}`}
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >
@@ -149,7 +149,7 @@ useEffect(() => {
           }`}
         />
         <div
-          className={`absolute right-0 top-0  w-72 bg-black/70 z-50 shadow-xl p-5 transition-transform ${
+          className={`absolute right-0 top-0 h-11/12 w-72 bg-black/70 z-50 shadow-xl p-5 transition-transform ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
