@@ -4,7 +4,7 @@ export default function Terms(){
     return(
         <div>
             <PageHeader page="terms" />
-            <section className="max-w-5xl mx-auto py-10">
+            <section className="max-w-5xl mx-auto py-10 px-2 md:px-0">
                 <div className="flex gap-5 pb-5">
                 <h1 className="font-bold text-xl">Latest Update:</h1>
                 <h1 className="font bold text-xl text-[#0066CC]">20/01/2025</h1>

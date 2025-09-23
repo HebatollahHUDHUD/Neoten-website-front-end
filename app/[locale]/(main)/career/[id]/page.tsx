@@ -62,7 +62,7 @@ export default function JobDetails({ params }: JobDetailsProps) {
 
   return (
     <div>
-    <div className="container mx-auto max-w-7xl pt-40 pb-16">
+    <div className="container mx-auto max-w-7xl pt-40 pb-16 px-2 md:px-0">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* الكول الأول */}
         <div className="flex flex-col justify-start text-start">

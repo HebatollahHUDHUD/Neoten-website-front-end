@@ -3,7 +3,7 @@ import Image from "next/image";
 const Choose = () => {
     return (
          <section className="grid grid-cols-1 md:grid-cols-2">
-        <div className="col-span-1 relative w-full aspect-[4/3]">
+        <div className="col-span-1 relative w-full h-[32rem] sm:h-[35rem] ">
             <Image
             src="/images/Rectangle 137.png"
             alt="Rectangle 137"
@@ -13,7 +13,7 @@ const Choose = () => {
             priority
             />
         </div>
-        <div className="col-span-1 relative w-full aspect-[4/3]">
+        <div className="col-span-1 relative w-full h-[32rem] sm:h-[35rem]  ">
             <Image
             src="/images/Rectangle 132.png"
             alt="Rectangle 137"

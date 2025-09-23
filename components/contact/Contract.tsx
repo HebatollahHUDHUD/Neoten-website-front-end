@@ -56,7 +56,7 @@ const Contact = () => {
                       </div>
                       </div>
             </div>
-            <div className="max-w-3xl mx-auto h-[450px]">
+            <div className="max-w-3xl mx-auto h-[450px] px-2 md:px-0">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3217.37153444943!2d35.88110667542481!3d31.964934674013648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca1bdcf1dd593%3A0x4b4acc2efaf710dc!2sHUDHUD%20Information%20Technology!5e1!3m2!1sen!2sjo!4v1758444371152!5m2!1sen!2sjo"
               className="w-full h-full border-0"

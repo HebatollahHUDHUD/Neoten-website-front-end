@@ -35,7 +35,7 @@ const FAQs = () => {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
       </p>
       </div>
-      <div className="space-y-4 mb-20">
+      <div className="space-y-4 mb-20 px-2 md:px-0">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           return (

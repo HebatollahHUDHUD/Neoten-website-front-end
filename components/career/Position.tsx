@@ -43,8 +43,8 @@ const { locale } = useParams<{ locale: string }>();
           loop={true} // 🔥 الانفينيتي
           breakpoints={{
             1280: { slidesPerView: 4, slidesPerGroup: 4 },
-            1024: { slidesPerView: 2, slidesPerGroup: 2 },
-            640: { slidesPerView: 1, slidesPerGroup: 1 },
+            400: { slidesPerView: 3, slidesPerGroup: 3 },
+            240: { slidesPerView: 2, slidesPerGroup: 2 },
           }}
         >
           {jobs.map((job) => (

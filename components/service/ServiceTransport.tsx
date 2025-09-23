@@ -32,7 +32,7 @@ function getFirstWords(text: string, count: number) {
 
 export default function ServiceTransport() {
   return (
-    <section className="max-w-5xl mx-auto py-10">
+    <section className="max-w-5xl mx-auto py-10 px-3 md: px-0">
         <p className="text-sm font-semibold text-[#00A699] text-center">
             ALWAYS AHEAD
         </p>

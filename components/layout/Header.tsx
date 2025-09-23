@@ -71,7 +71,7 @@ useEffect(() => {
         `}
     
     >
-      <div className={`max-w-6xl mx-auto flex items-center justify-between transition-all ${isHome ? scrolled ? "h-10" :"h-16" : "h-10"}`}>
+      <div className={`max-w-6xl mx-auto flex items-center justify-between transition-all px-2 md:px-0 ${isHome ? scrolled ? "h-10" :"h-16" : "h-10"}`}>
         {/* Logo */}
         {isHome ? 
         scrolled

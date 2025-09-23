@@ -50,9 +50,9 @@ export default function ServiceDetails() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto py-10 flex gap-14">
+    <div className="max-w-6xl mx-auto py-10 flex flex-col md:flex-row gap-14">
       {/* Sidebar */}
-      <div className="w-1/3 md:w-1/4">
+      <div className="w-full md:w-1/4">
         <div className="flex flex-col gap-2">
           {services.map((s) => {
             const isActive = s.id === id;
@@ -95,7 +95,7 @@ export default function ServiceDetails() {
       </div>
 
       {/* Content */}
-      <div className="flex-1">
+      <div className="flex-1 px-2 md:px-0">
         <h2 className="text-3xl font-bold mb-4">Overview</h2>
         <div className="space-y-6">
   {service.text.split("\n").map((paragraph, idx) => (
