@@ -1,19 +1,29 @@
 "use client";
 
 import Image from "next/image";
-
+import Link from "next/link";
 type Service = {
+  id : number;
   title: string;
-  icon: string; 
-  image: string; 
+  icon: string;
+  image: string;
+  text: string;
 };
 
 const services: Service[] = [
-  { title: "Air Flight", icon: "/images/Rectangle 84.png", image: "/images/Rectangle 82.png" },
-  { title: "Truck Flight", icon: "/images/Rectangle 89.png", image: "/images/Rectangle 87.png" },
-  { title: "Ship Flight", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png" },
-  { title: "Train Freight", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png" },
-];
+  { id: 1, title: "Air Flight", icon: "/images/Rectangle 84.png", image: "/images/Rectangle 82.png" ,
+    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
+   },
+  {  id: 2,title: "Truck Flight", icon: "/images/Rectangle 89.png", image: "/images/Rectangle 87.png" ,
+    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
+   },
+  {  id: 3,title: "Ship Flight", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png" ,
+    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
+   },
+  {  id: 4,title: "Train Freight", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png" ,
+    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
+   },
+]
 
 const stats = [
   { number: 165, label: "Countries Covered" },
@@ -26,7 +36,7 @@ export default function TransportServices() {
   return (
     <section className="w-full my-20">
       {/* Header */}
-      <div className="bg-[#0066CC] max-w-6xl mx-auto text-white p-10 flex flex-col md:flex-row md:items-center md:justify-between">
+      <div className="bg-[#0066CC] max-w-5xl mx-auto text-white p-10 flex flex-col md:flex-row md:items-center md:justify-between">
         <h2 className="text-2xl md:text-3xl font-bold max-w-2xl">
           We Think Beyond The Borders
         </h2>
@@ -41,6 +51,7 @@ export default function TransportServices() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((service, idx) => (
           <div key={idx} className="relative aspect-[4/5]">
+            <Link href={`/service/${service.id}`}>
             {/* خلفية */}
             <Image
               src={service.image}
@@ -59,7 +70,9 @@ export default function TransportServices() {
                 width={40}
                 height={40}
               />
+              
               <span className="mt-2 font-semibold">{service.title}</span>
+              
             </div>
             <div className="flex justify-center">
             <div className="relative w-20 h-1">
@@ -73,6 +86,7 @@ export default function TransportServices() {
              />
             </div>
             </div>
+            </Link>
           </div>
         ))}
       </div>

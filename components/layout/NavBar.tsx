@@ -10,7 +10,7 @@ const isHome = pathname === `/${locale}` || pathname === "/";
 const [searchOpen, setSearchOpen] = useState(false);
 
     return(
-    <div className={`absolute top-0 left-0 right-0 z-50 w-full ${isHome ? "bg-transparent" : "bg-black"}`}>
+    <div className={`absolute top-0 left-0 right-0 z-50 w-full h-[45px] ${isHome ? "bg-transparent" : "bg-black"}`}>
   <div className="max-w-7xl mx-auto">
      <div className="flex flex-row justify-end">
        <div 
@@ -21,7 +21,7 @@ const [searchOpen, setSearchOpen] = useState(false);
           </div>
           <div className="flex flex-row gap-4 border-x border-x-white py-3 px-5 place-items-center">
              <Image src="/you.svg" alt="Serach" width={20} height={10} quality={100} className="cursor-pointer" />
-              <Image src="/in.svg" alt="Serach" width={20} height={10} quality={100} className="cursor-pointer" />
+              <Image src="/face.svg" alt="Serach" width={11} height={10} quality={100} className="cursor-pointer" />
                <Image src="/Path 56.svg" alt="Serach" width={20} height={10} quality={100} className="cursor-pointer" /> 
                </div>
                 <div className="flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center">
@@ -50,7 +50,7 @@ const [searchOpen, setSearchOpen] = useState(false);
 
         {/* زر إغلاق */}
         <button 
-          className="absolute top-5 right-5 text-white text-xl font-bold"
+          className="absolute top-5 right-5 text-white text-xl font-bold cursor-pointer"
           onClick={() => setSearchOpen(false)}
         >
           ✕

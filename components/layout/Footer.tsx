@@ -67,16 +67,16 @@ const Footer = () => {
       </p>
       <div className="flex flex-row justify-start gap-5">
         {[
-          { src: "/face.svg", alt: "facebook" },
-          { src: "/x.svg", alt: "x" },
-          { src: "/in.svg", alt: "instagram" },
-          { src: "/you.svg", alt: "youtube" }
+          { src: "/face.svg", alt: "facebook", w:11 },
+          { src: "/x.svg", alt: "x", w:17 },
+          { src: "/in.svg", alt: "instagram", w:17 },
+          { src: "/you.svg", alt: "youtube", w:17 }
         ].map((icon, idx) => (
           <div key={idx} className="bg-[#193d60] rounded-full w-10 h-10 flex justify-center items-center cursor-pointer">
             <Image
               src={icon.src}
               alt={icon.alt}
-              width={17}
+              width={icon.w}
               height={20}
               quality={100}
               className="object-contain"

@@ -42,6 +42,7 @@ export default function ServiceTransport() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-10 justify-center">
         {services.map((service, idx) => (
           <div key={idx}>
+            <Link href={`/service/${service.id}`}>
             {/* الكارد */}
             <div className="relative aspect-[4/5]">
               {/* صورة الخلفية */}
@@ -56,14 +57,13 @@ export default function ServiceTransport() {
 
               {/* المحتوى */}
               <div className="relative z-10 flex flex-col items-center justify-end h-full pb-6 text-white">
-                <Link href={`/service/${service.id}`}>
                 <Image
                   src={service.icon}
                   alt={`${service.title} icon`}
                   width={40}
                   height={40}
                 />
-                </Link>
+                
                 <span className="mt-2 font-semibold">{service.title}</span>
               </div>
               <div className="flex justify-center">
@@ -79,6 +79,7 @@ export default function ServiceTransport() {
                 </div>
               </div>
             </div>
+            </Link>
 
             <p className="mt-3 text-lg font-normal text-center">
               {getFirstWords(service.text, 19)}...

@@ -56,18 +56,22 @@ useEffect(() => {
   return (
     <header
       className={`fixed left-0 right-0 z-40 transition-transform duration-300 w-full shadow py-5 border-y border-white md:
-        ${show ? "translate-y-0 top-[45px]" : "-translate-y-full top-0"}
+        ${show ? "translate-y-0 " : "-translate-y-full"}
     ${
       isHome
         ? scrolled
           ? "bg-white text-black top-0"
-          : "bg-transparent text-white top-0"
-        : "bg-white text-black top-0"
+          : "bg-transparent text-white top-[45px]"
+        :
+        scrolled ?
+        "bg-white text-black top-0"
+        :
+        "bg-white text-black top-[45px]"
     }
         `}
     
     >
-      <div className="max-w-6xl mx-auto h-16  flex items-center justify-between">
+      <div className={`max-w-6xl mx-auto flex items-center justify-between transition-all ${isHome ? scrolled ? "h-10" :"h-16" : "h-10"}`}>
         {/* Logo */}
         {isHome ? 
         scrolled
@@ -99,7 +103,7 @@ useEffect(() => {
             <Image
               src="/Group 13.svg"
               alt=" Newton"
-              width={150}
+              width={120}
               height={100}
               quality={100}
               className="object-contain"
@@ -145,7 +149,7 @@ useEffect(() => {
           }`}
         />
         <div
-          className={`absolute right-0 top-0  w-72 bg-blue-950 z-50 shadow-xl p-5 transition-transform ${
+          className={`absolute right-0 top-0  w-72 bg-black/70 z-50 shadow-xl p-5 transition-transform ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}

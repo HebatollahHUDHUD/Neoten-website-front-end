@@ -54,7 +54,7 @@ const Testimonials = () => {
             </div>
 
             {/* النص (عنوان) */}
-            <h1 className="text-sm font-normal mb-4 text-center">
+            <h1 className="text-sm font-normal mb-4 text-center max-w-64">
               {item.title}
             </h1>
             <div className="mb-7">

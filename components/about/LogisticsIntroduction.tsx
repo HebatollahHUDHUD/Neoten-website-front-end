@@ -6,14 +6,14 @@ const LogisticsIntroduction = () => {
       
       <div className="flex flex-col col-span-1 justify-between text-center md:text-start">
         <div>
-          <h1 className="font-bold text-3xl">Logistics, Make The World Go Places</h1>
+          <h1 className="font-bold text-3xl max-w-sm">Logistics, Make The World Go Places</h1>
           <p className="font-semibold text-sm py-4">
             We have a solution for every need to send or supply products in any mode of freight transport: land, sea and air.
           </p>
-          <p className="font-normal text-xs">
+          <p className="font-normal text-xs max-w-sm">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
           </p>
-          <span className="font-normal text-xs pt-4 block">
+          <span className="font-normal text-xs pt-4 block max-w-sm">
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </span>
         </div>

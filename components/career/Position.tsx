@@ -74,7 +74,7 @@ const OpenPositions = () => {
           {jobs.map((job) => (
             <div key={job.id} className="px-4">
               <div className="p-6 h-full flex flex-col items-start">
-                <div className="bg-[#0066CC] text-white font-bold text-xl w-16 h-16 flex items-center justify-center ">
+                <div className="bg-[#0066CC] text-white font-bold text-3xl w-16 h-16 flex items-center justify-center ">
                   {job.id.toString().padStart(2, "0")}
                 </div>
                 <h3 className="mt-4 font-bold text-lg">{job.title}</h3>
