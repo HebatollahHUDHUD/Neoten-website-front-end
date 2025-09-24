@@ -39,7 +39,7 @@ const InfoSection = () => {
     <section className="bg-[#C0DAF5]">
     <div className="bg-[#99CBFC] py-2"></div>
       <div className="container py-6">
-        <div className={`marquee ${isRTL ? "rtl" : "ltr"}`}>
+        <div dir="ltr"  className={`marquee ${isRTL ? "rtl" : ""}`}>
           <ul className="marquee__track flex gap-6">
             {infoItems.map((item, index) => (
               <li key={index} className="shrink-0">

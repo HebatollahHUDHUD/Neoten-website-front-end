@@ -35,14 +35,13 @@ export default function HeroSlider() {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-    useEffect(() => {
-    const interval = setInterval(() => {
-      locale === "ar"
-        ? prevSlide() 
-        : nextSlide(); 
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [locale]);
+useEffect(() => {
+  const interval = setInterval(() => {
+    nextSlide(); 
+  }, 3000);
+  return () => clearInterval(interval);
+}, []);
+
 
   return (
     <div className="relative w-full h-screen overflow-hidden"
@@ -51,7 +50,9 @@ export default function HeroSlider() {
       {/* Slides */}
       <div
         className="flex transition-transform duration-700 ease-in-out h-full"
-        style={{ transform: `translateX(-${current * 100}%)` }}
+        style={{
+        transform: `translateX(${locale === "ar" ? current * 100 : -current * 100}%)`
+              }}
       >
         {slides.map((slide, index) => (
           <div key={index} className="w-full h-full flex-shrink-0 relative">
