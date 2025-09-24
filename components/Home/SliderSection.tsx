@@ -6,19 +6,9 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 const slides = [
   {
-    src: "/images/Rectangle 69.png",
-    title: "POWER BEYOND CARGO",
-    desc: "LOGISTICS. INNOVATION. TECHNOLOGY.",
-  },
- {
-    src: "/images/99b3066d3d364243ac0bfb4f7c565c5d.png",
-    title: "POWER BEYOND CARGO",
-    desc: "LOGISTICS. INNOVATION. TECHNOLOGY.",
-  },
-  {
-    src: "/images/Rectangle 69.png",
-    title: "POWER BEYOND CARGO",
-    desc: "LOGISTICS. INNOVATION. TECHNOLOGY.",
+    src: "/images/pic-1.jpg",
+    title: "power",
+    desc: "whatt",
   },
 ];
 
@@ -61,6 +51,7 @@ useEffect(() => {
               alt={slide.title}
               fill
               priority
+              quality={100}
               className="object-cover"
             />
             {/* Overlay */}
@@ -70,11 +61,11 @@ useEffect(() => {
           {/* Text content container */}
 <div className="absolute inset-0 flex flex-col justify-center items-center text-center md:text-start text-white">
   {/* النصوص */}
-  <div className="max-w-6xl mx-auto px-6">
+  <div className="max-w-5xl mx-auto px-6">
     <h1 className="text-sm md:text-lg font-semibold mb-4 tracking-[0.5em] uppercase">
-      {slide.title}
+      {t(slide.title)}
     </h1>
-    <p className="font-bold text-4xl md:text-6xl mb-6">{slide.desc}</p>
+    <p className="font-bold text-4xl md:text-6xl mb-6">{t(slide.desc)}</p>
   </div>
 
   <div className={`absolute mt-64 flex items-center w-64 ${locale === "ar" ? "right-0" : "left-0"}`}>

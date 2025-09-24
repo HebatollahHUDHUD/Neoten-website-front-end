@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PageHeader from "@/components/common/pageHeader";
+import { useParams } from "next/navigation";
 
 type GalleryItem = {
   src: string;
@@ -43,7 +44,7 @@ export default function Gallery() {
   const [active, setActive] = useState("All");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(14);
-
+  const { locale } = useParams<{ locale: string }>(); 
   const filtered =
     active === "All" ? items : items.filter((item) => item.category === active);
 
@@ -127,10 +128,11 @@ export default function Gallery() {
         <div className="fixed inset-0 bg-black/80 flex flex-col items-center justify-center z-50">
           {/* أزرار التنقل */}
           <button
-            onClick={handlePrev}
+            onClick={locale === "ar" ? handleNext : handlePrev}
             className="absolute left-6 text-white text-4xl cursor-pointer"
           >
-            ❮
+            {locale === "ar" ? "❯" : "❮" }
+            
           </button>
 
           {/* الصورة */}
@@ -153,10 +155,10 @@ export default function Gallery() {
 
           {/* زر التالي */}
           <button
-            onClick={handleNext}
+            onClick={locale ==="ar" ? handlePrev : handleNext}
             className="absolute right-6 text-white text-4xl cursor-pointer"
           >
-            ❯
+            {locale === "ar" ? "❮" : "❯" }
           </button>
         </div>
       )}

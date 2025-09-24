@@ -2,28 +2,30 @@
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { useTranslations } from "next-intl";
 const faqs = [
   { 
-    question: "What is Cargo?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    question: "q1",
+    answer: "an1",
   },
   { 
-    question: "What is Cargo?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    question: "q2",
+    answer: "an2",
   },
   { 
-    question: "What is Cargo?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    question: "q3",
+    answer: "an3",
   },
   { 
-    question: "What is Cargo?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    question: "q4",
+    answer: "an4",
   },
 ];
 
 const FAQs = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const { locale } = useParams<{ locale: string }>();
+  const t = useTranslations();
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -52,12 +54,12 @@ const FAQs = () => {
                 onClick={() => toggle(index)}
                 className={`w-full flex justify-between items-center py-2 text-left font-semibold text-2xl ${isOpen ? "text-white" : "text-black"}`}
               >
-                {faq.question}
+                {t(faq.question)}
                 {isOpen ? <FiMinus size={20} color="white" /> : <FiPlus size={20} color="#747474" />}
               </button>
               {isOpen && (
                 <p className="mt-4 max-w-[520px] font-normal text-lg">
-                  {faq.answer}
+                  {t(faq.answer)}
                 </p>
               )}
             </div>

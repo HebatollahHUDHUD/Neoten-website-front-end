@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-row justify-center items-center gap-14 lg:gap-52 py-5 order-2 md:order-1">
       {/* Phone */}
       <Link
-        href="tel:0790000000"
+        href="tel:+962 7 9878 5992"
         className="flex flex-col gap-2 place-items-center"
       >
         <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
@@ -25,12 +25,12 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm">0790000000</p>
+        <p className="font-normal text-sm">+962 7 9878 5992</p>
       </Link>
 
       {/* Email */}
       <Link
-        href="mailto:Info@newton.com"
+        href="mailto:info@newtonlogistics.com"
         className="flex flex-col gap-2 place-items-center"
       >
         <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
@@ -43,12 +43,12 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm">Info@newton.com</p>
+        <p className="font-normal text-sm">info@newtonlogistics.com</p>
       </Link>
 
       {/* Location */}
       <Link
-        href="https://www.google.com/maps/place/Amman,+Jordan"
+        href="https://www.google.com/maps/place/Newton+Logistics/@31.9845278,35.881986,739m/data=!3m2!1e3!4b1!4m6!3m5!1s0x151ca03b75b7d869:0xb4ba8fa829db108f!8m2!3d31.9845279!4d35.8868569!16s%2Fg%2F1q6jzc94h?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D"
         target="_blank"
         rel="noopener noreferrer"
         className="flex flex-col gap-2 place-items-center"
@@ -63,7 +63,7 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm">Amman, Jordan</p>
+        <p className="font-normal text-sm">{t("jordan")}</p>
       </Link>
     </div>
         <div className="border-y-2 border-[#ADD5FF99] py-7 w-full order-1 md:order-2">
@@ -79,8 +79,7 @@ const Footer = () => {
         className="object-cover w-28"
       />
       <p className="font-normal text-sm max-w-xl mx-auto text-center md:text-start">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-      </p>
+        {t("our")}</p>
       <div className="flex flex-row justify-start gap-5">
   {[
     { src: "/face.svg", alt: "facebook", w: 11, href: "https://facebook.com" },

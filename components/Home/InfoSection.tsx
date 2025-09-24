@@ -6,27 +6,15 @@ import { useParams } from "next/navigation";
 const infoItems = [
   {
     icon: "/images/Rectangle 121.png",
-    text: "Sunday - Thursday: 08:00 - 16:00 Friday - Saturday: Closed.",
+    text: "sunday",
   },
   {
     icon: "/images/Rectangle 125.png",
-    text: "Industrial Shipping: We offer integrated logistics.",
+    text: "industrial",
   },
   {
     icon: "/images/Rectangle 129.png",
-    text: "International Transport: Express delivery of every goods.",
-  },
-  {
-    icon: "/images/Rectangle 125.png",
-    text: "Sunday - Thursday: 08:00 - 16:00 Friday - Saturday: Closed.",
-  },
-  {
-    icon: "/images/Rectangle 129.png",
-    text: "Industrial Shipping: We offer integrated logistics.",
-  },
-  {
-    icon: "/images/Rectangle 121.png",
-    text: "International Transport: Express delivery of every goods.",
+    text: "international",
   },
 ];
 
@@ -58,7 +46,7 @@ const InfoSection = () => {
                       className="h-14 object-contain"
                     />
                     <p className="font-medium text-center text-lg text-[#1D428A] mb-4 max-w-xs">
-                      {item.text}
+                      {t(item.text)}
                     </p>
                   </div>
                 </li>

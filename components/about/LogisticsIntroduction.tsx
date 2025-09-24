@@ -1,8 +1,10 @@
 "use client";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 const LogisticsIntroduction = () => {
   const { locale } = useParams<{ locale: string }>();
+  const t = useTranslations();
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch max-w-4xl mx-auto my-8">
       
@@ -10,13 +12,13 @@ const LogisticsIntroduction = () => {
         <div>
           <h1 className="font-bold text-3xl max-w-sm">Logistics, Make The World Go Places</h1>
           <p className="font-semibold text-sm py-4">
-            We have a solution for every need to send or supply products in any mode of freight transport: land, sea and air.
+            {t("t1")}
           </p>
           <p className="font-normal text-xs max-w-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+            {t("t2")}
           </p>
           <span className="font-normal text-xs pt-4 block max-w-sm">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {t("t3")}
           </span>
         </div>
 
