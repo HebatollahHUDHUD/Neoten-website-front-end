@@ -35,14 +35,14 @@ export default function HeroSlider() {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  //   useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     locale === "ar"
-  //       ? prevSlide() 
-  //       : nextSlide(); 
-  //   }, 3000);
-  //   return () => clearInterval(interval);
-  // }, [locale]);
+    useEffect(() => {
+    const interval = setInterval(() => {
+      locale === "ar"
+        ? prevSlide() 
+        : nextSlide(); 
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [locale]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden"
