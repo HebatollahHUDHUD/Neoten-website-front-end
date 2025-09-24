@@ -13,15 +13,9 @@ const Choose = () => {
             priority
             />
         </div>
-        <div className="col-span-1 relative w-full h-[32rem] sm:h-[35rem]  ">
-            <Image
-            src="/images/Rectangle 132.png"
-            alt="Rectangle 137"
-            fill
-            className="object-cover"
-            quality={100}
-            priority
-            />
+        <div className="col-span-1 relative w-full h-[32rem] sm:h-[35rem] bg-fixed bg-center bg-cover  "
+      style={{ backgroundImage: "url('/images/Rectangle 132.png')" }}
+      >
             <div className="absolute inset-0 bg-[#09192A] opacity-90"></div>
          <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12 text-white">
         <p className="text-sm font-normal uppercase tracking-wide">

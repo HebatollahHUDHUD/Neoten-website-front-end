@@ -26,15 +26,9 @@ const WhyWork = () => {
   const { locale } = useParams<{ locale: string }>();
 
   return (
-    <section className="relative">
-      {/* الخلفية */}
-      <Image
-        src="/images/Rectangle 21482.png"
-        alt=""
-        fill
-        className="object-cover"
-        priority
-      />
+    <section className="relative bg-fixed bg-center bg-cover"
+      style={{ backgroundImage: "url('/images/Rectangle 21482.png')" }}
+      >
       <div className="absolute inset-0 bg-[#09192A]/70"></div>
 
       {/* المحتوى */}

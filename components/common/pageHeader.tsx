@@ -63,7 +63,7 @@ const PageHeader = ({ page }: { page: keyof typeof staticPages }) => {
 
         {/* Overlay */}
         <div className="z-[-1] p-4 w-full h-full flex bg-black/50 flex-col gap-2 items-center justify-center text-white text-center">
-          <h1 className="text-3xl md:text-6xl text-white font-bold pt-20 md:pt-5 uppercase">{t(current.title)}</h1>
+          <h1 className="text-3xl md:text-5xl text-white font-bold pt-20 md:pt-14 uppercase">{t(current.title)}</h1>
         </div>
       </div>
     </section>
