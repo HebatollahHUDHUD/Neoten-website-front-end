@@ -11,7 +11,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
-  const [scrolled, setScrolled] = useState(false); // يحدد إذا طلعت بعد النزول
+  const [scrolled, setScrolled] = useState(false);
   const t = useTranslations();
   const locale = useLocale();
   const pathname = usePathname();
