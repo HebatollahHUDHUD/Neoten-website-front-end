@@ -3,30 +3,31 @@ import { useState } from "react";
 import Image from "next/image";
 import PageHeader from "@/components/common/pageHeader";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 type GalleryItem = {
   src: string;
-  category: "Air Flight" | "Truck Flight" | "Ship Flight" | "Train Flight";
+  category: "air" | "ocean" | "land" | "customs" | "ware" | "doc";
 };
 
 const items: GalleryItem[] = [
-    { src: "/images/2e9fe81f046b0f884268fe91cf358565.png", category: "Ship Flight" },
-  { src: "/images/4cb1873701c26282d1e6cc79190313f2.png", category: "Air Flight" },
-  { src: "/images/9db19e35043dcd307de90151bd70c3ab.png", category: "Train Flight" },
-  { src: "/images/75dbceb6492570970b369858fb688187.png", category: "Air Flight" },
-  { src: "/images/91a172a5c40e10fd802869d45646c02f.png", category: "Ship Flight" },
-  { src: "/images/99b3066d3d364243ac0bfb4f7c565c5d.png", category: "Truck Flight" },
-  { src: "/images/199c1b49af7bc78f0f47fbcf15d972e5.png", category: "Air Flight" },
-  { src: "/images/7aadf5111b0142ee80c97695e4f3965c.png", category: "Truck Flight" },
-  { src: "/images/75dbceb6492570970b369858fb688187.png", category: "Air Flight" },
-  { src: "/images/91a172a5c40e10fd802869d45646c02f.png", category: "Ship Flight" },
-  { src: "/images/99b3066d3d364243ac0bfb4f7c565c5d.png", category: "Truck Flight" },
-  { src: "/images/199c1b49af7bc78f0f47fbcf15d972e5.png", category: "Air Flight" },
-  { src: "/images/7aadf5111b0142ee80c97695e4f3965c.png", category: "Truck Flight" },
-  { src: "/images/7aadf5111b0142ee80c97695e4f3965c.png", category: "Truck Flight" },
-  { src: "/images/75dbceb6492570970b369858fb688187.png", category: "Air Flight" },
-  { src: "/images/91a172a5c40e10fd802869d45646c02f.png", category: "Ship Flight" }, 
-  { src: "/images/199c1b49af7bc78f0f47fbcf15d972e5.png", category: "Air Flight" },
+    { src: "/images/2e9fe81f046b0f884268fe91cf358565.png", category: "land" },
+  { src: "/images/4cb1873701c26282d1e6cc79190313f2.png", category: "customs" },
+  { src: "/images/9db19e35043dcd307de90151bd70c3ab.png", category: "ware" },
+  { src: "/images/75dbceb6492570970b369858fb688187.png", category: "air" },
+  { src: "/images/91a172a5c40e10fd802869d45646c02f.png", category: "land" },
+  { src: "/images/99b3066d3d364243ac0bfb4f7c565c5d.png", category: "ocean" },
+  { src: "/images/199c1b49af7bc78f0f47fbcf15d972e5.png", category: "air" },
+  { src: "/images/7aadf5111b0142ee80c97695e4f3965c.png", category: "ocean" },
+  { src: "/images/75dbceb6492570970b369858fb688187.png", category: "air" },
+  { src: "/images/91a172a5c40e10fd802869d45646c02f.png", category: "land" },
+  { src: "/images/99b3066d3d364243ac0bfb4f7c565c5d.png", category: "ocean" },
+  { src: "/images/199c1b49af7bc78f0f47fbcf15d972e5.png", category: "doc" },
+  { src: "/images/7aadf5111b0142ee80c97695e4f3965c.png", category: "ocean" },
+  { src: "/images/7aadf5111b0142ee80c97695e4f3965c.png", category: "ocean" },
+  { src: "/images/75dbceb6492570970b369858fb688187.png", category: "air" },
+  { src: "/images/91a172a5c40e10fd802869d45646c02f.png", category: "land" }, 
+  { src: "/images/199c1b49af7bc78f0f47fbcf15d972e5.png", category: "air" },
 ];
 
 // التوزيعة المحفوظة
@@ -38,13 +39,14 @@ const layout = [
   "col-span-2", "col-span-1", "col-span-1", // row 5
 ];
 
-const categories = ["All", "Air Flight", "Truck Flight", "Ship Flight", "Train Flight"];
+const categories = ["all", "air", "ocean", "land", "customs" , "ware" , "doc"];
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(14);
   const { locale } = useParams<{ locale: string }>(); 
+  const t = useTranslations();
   const filtered =
     active === "All" ? items : items.filter((item) => item.category === active);
 
@@ -80,11 +82,11 @@ export default function Gallery() {
                 setVisibleCount(14);
                 setSelectedIndex(null);
               }}
-              className={`px-5 py-3 w-48 font-semibold ${
+              className={`px-5 py-3 w-64 font-semibold ${
                 active === cat ? "bg-[#0066CC] text-white" : "bg-none text-black"
               }`}
             >
-              {cat}
+              {t(cat)}
             </button>
           ))}
         </div>
