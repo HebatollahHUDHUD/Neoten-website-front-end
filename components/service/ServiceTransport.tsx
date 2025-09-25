@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,18 +13,18 @@ type Service = {
 };
 
 const services: Service[] = [
-  { id: 1, title: "Air Flight", icon: "/images/Rectangle 84.png", image: "/images/Rectangle 82.png" ,
-    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
-   },
-  {  id: 2,title: "Truck Flight", icon: "/images/Rectangle 89.png", image: "/images/Rectangle 87.png" ,
-    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
-   },
-  {  id: 3,title: "Ship Flight", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png" ,
-    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
-   },
-  {  id: 4,title: "Train Freight", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png" ,
-    text : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit."
-   },
+  { id: 1, title: "air", icon: "/images/Rectangle 84.png", image: "/images/Rectangle 82.png" ,
+    text : "fast"},
+  {  id: 2,title: "ocean", icon: "/images/Rectangle 89.png", image: "/images/Rectangle 87.png" ,
+    text : "cost"},
+  {  id: 3,title: "land", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png" ,
+    text : "flexible"},
+  {  id: 4,title: "customs", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png" ,
+    text : "efficient"},
+  {  id: 5,title: "ware", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png" ,
+    text : "secure"},
+  {  id: 6,title: "doc", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png" ,
+    text : "professional"},
 ]
 
 function getFirstWords(text: string, count: number) {
@@ -31,13 +32,14 @@ function getFirstWords(text: string, count: number) {
 }
 
 export default function ServiceTransport() {
+  const t = useTranslations();
   return (
-    <section className="max-w-5xl mx-auto py-10 px-3 md: px-0">
+    <section className="max-w-5xl mx-auto py-10 px-3 md:px-0">
         <p className="text-sm font-semibold text-[#00A699] text-center">
-            ALWAYS AHEAD
+            {t("always")}
         </p>
         <h1 className="text-4xl font-bold text-center max-w-lg mx-auto">
-            Logistics Beyond Expectation
+            {t("logistics")}
         </h1>        
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-10 justify-center">
         {services.map((service, idx) => (
@@ -64,7 +66,7 @@ export default function ServiceTransport() {
                   height={40}
                 />
                 
-                <span className="mt-2 font-semibold">{service.title}</span>
+                <span className="mt-2 font-semibold">{t(service.title)}</span>
               </div>
               <div className="flex justify-center">
                 <div className="relative w-20 h-1">
@@ -82,7 +84,7 @@ export default function ServiceTransport() {
             </Link>
 
             <p className="mt-3 text-lg font-normal text-center">
-              {getFirstWords(service.text, 19)}...
+              {t(getFirstWords(service.text, 19))}...
             </p>
           </div>
         ))}

@@ -17,9 +17,9 @@ const { locale } = useParams<{ locale: string }>();
     return(
       <div className="px-2 md:px-0">
         <section className="mb-14 max-w-3xl mx-auto bg-[#E6F4F2] shadow-[#00000029] rounded-2xl py-8 px-10">
-            <h1 className="font-bold text-3xl text-center uppercase "><p className="max-w-xs mx-auto">Share Your</p> Thoughts & Concerns</h1>
+            <h1 className="font-bold text-3xl text-center uppercase ">{t("share")}</h1>
             <p className="font-semibold text-[#666666] text-sm text-center max-w-lg mx-auto pt-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {t("ff")}
             </p>
             <form onSubmit={handleSubmit} className="space-y-4 mt-5">
         {/* Full Name */}

@@ -15,7 +15,7 @@ const staticPages: Record<
     image: "/images/5c6d76b502d389f5b8feb6209d326f06.png",
   },
   services: {
-    title: "services",
+    title: "service",
     image: "/images/5c6d76b502d389f5b8feb6209d326f06.png",
   },
   career: {
@@ -39,10 +39,12 @@ const staticPages: Record<
     image: "/images/5c6d76b502d389f5b8feb6209d326f06.png",
   },
 
-  "1": { title: "air-flight", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
-  "2": { title: "truck-flight", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
-  "3": { title: "ship-flight", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
-  "4": { title: "train-freight", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
+  "1": { title: "air", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
+  "2": { title: "ocean", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
+  "3": { title: "land", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
+  "4": { title: "customs", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
+  "5": { title: "ware", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
+  "6": { title: "doc", image: "/images/4cb1873701c26282d1e6cc79190313f2.png" },
 };
 
 const PageHeader = ({ page }: { page: keyof typeof staticPages }) => {

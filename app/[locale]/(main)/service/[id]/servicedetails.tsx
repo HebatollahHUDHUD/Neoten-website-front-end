@@ -14,19 +14,20 @@ type Service = {
 };
 
 const services: Service[] = [
-  { id: 1, title: "Air Flight", icon: "/images/Rectangle 84.png", image: "/images/Rectangle 82.png", text : `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. 
-     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.` },
-  { id: 2, title: "Truck Flight", icon: "/images/Rectangle 89.png", image: "/images/Rectangle 87.png", text : `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. 
-     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.` },
-  { id: 3, title: "Ship Flight", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png", text : `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. 
-     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.` },
-  { id: 4, title: "Train Freight", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png", text : `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. 
-     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat duis aute irure dolor in reprehenderit.` },
+  { id: 1, title: "air", icon: "/images/Rectangle 84.png", image: "/images/Rectangle 82.png" ,
+    text : "fast"},
+  {  id: 2,title: "ocean", icon: "/images/Rectangle 89.png", image: "/images/Rectangle 87.png" ,
+    text : "cost"},
+  {  id: 3,title: "land", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png" ,
+    text : "flexible"},
+  {  id: 4,title: "customs", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png" ,
+    text : "efficient"},
+  {  id: 5,title: "ware", icon: "/images/Rectangle 94.png", image: "/images/Rectangle 92.png" ,
+    text : "secure"},
+  {  id: 6,title: "doc", icon: "/images/Rectangle 99.png", image: "/images/Rectangle 97.png" ,
+    text : "professional"},
 ]
+
 export default function ServiceDetails() {
   const params = useParams();
   const router = useRouter();
@@ -52,7 +53,7 @@ export default function ServiceDetails() {
   return (
     <div className="max-w-6xl mx-auto py-10 flex flex-col md:flex-row gap-14">
       {/* Sidebar */}
-      <div className="w-full md:w-1/4">
+      <div className="w-full md:w-1/3">
         <div className="flex flex-col gap-2">
           {services.map((s) => {
             const isActive = s.id === id;
@@ -85,7 +86,7 @@ export default function ServiceDetails() {
         : "text-black"
     }`}
   >
-    {s.title}
+    {t(s.title)}
   </span>
 </Link>
 
@@ -96,18 +97,20 @@ export default function ServiceDetails() {
 
       {/* Content */}
       <div className="flex-1 px-2 md:px-0">
-        <h2 className="text-3xl font-bold mb-4">Overview</h2>
-        <div className="space-y-6">
+        <h2 className="text-3xl font-bold mb-4">{t("overview")}</h2>
+        <p className="font-normal text-xl leading-7">{t("aa")}</p>
+        <div className="space-y-6 py-2">
   {service.text.split("\n").map((paragraph, idx) => (
     <p key={idx} className="font-normal text-xl leading-7">
-      {paragraph}
+      {t(paragraph)}
     </p>
   ))}
         </div>
+        <p className="font-normal text-xl leading-7">{t("ee")}</p>
         
         <div className="relative w-full mt-6">
           <section className="mb-14 max-w-4xl mx-auto bg-[#E7EDF4] shadow-[#00000029] rounded-2xl py-8 px-10">
-            <h1 className="font-bold text-3xl text-center uppercase max-w-xs mx-auto">WE ARE EAGER TO HELP YOU</h1>
+            <h1 className="font-bold text-3xl text-center uppercase max-w-xs mx-auto">{t("eager")}</h1>
             <p className="font-semibold text-[#666666] text-sm text-center max-w-lg mx-auto pt-3">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>

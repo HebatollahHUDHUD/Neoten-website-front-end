@@ -7,7 +7,7 @@ export default function AboutCareer(){
               
               <div className="flex flex-col col-span-1 justify-center items-center md:items-star text-center md:text-start">
                 <div className="space-y-2">
-                    <p className="font-semibold text-sm text-[rgb(0,166,153)]">{t("always-ahead")}</p>
+                    <p className="font-semibold text-sm text-[rgb(0,166,153)]">{t("always")}</p>
                   <h1 className="font-bold text-3xl md:max-w-xs">
                     {t("together")}
                     </h1>
