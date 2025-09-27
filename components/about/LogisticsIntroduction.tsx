@@ -22,7 +22,7 @@ const LogisticsIntroduction = () => {
           </span>
         </div>
 
-        <div className="flex flex-row justify-between gap-5 py-5">
+        {/* <div className="flex flex-row justify-between gap-5 py-5">
           <div className="flex flex-col gap-2 items-center md:items-start">
             <Image
               src="/images/Rectangle 145.png"
@@ -47,7 +47,7 @@ const LogisticsIntroduction = () => {
             <h1 className="font-bold text-lg text-start">Delivery Unlimited</h1>
             <p className="font-normal text-sm">Lorem ipsum dolor sit elit consectur sed tempor..</p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="relative col-span-1 flex justify-center items-center">

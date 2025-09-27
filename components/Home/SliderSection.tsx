@@ -62,9 +62,9 @@ useEffect(() => {
 <div className="absolute inset-0 flex flex-col justify-center items-center text-center md:text-start text-white">
   {/* النصوص */}
   <div className="max-w-5xl mx-auto px-6">
-    <h1 className="text-sm md:text-lg font-semibold mb-4 tracking-[0.5em] uppercase">
+    {/* <h1 className="text-sm md:text-lg font-semibold mb-4 tracking-[0.5em] uppercase">
       {t(slide.title)}
-    </h1>
+    </h1> */}
     <p className="font-bold text-4xl md:text-6xl mb-6">{t(slide.desc)}</p>
   </div>
 

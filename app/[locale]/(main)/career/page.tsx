@@ -10,7 +10,7 @@ export default function Career (){
             <PageHeader page="career" />
             <AboutCareer />
             <WhyWork />
-            <Positions />
+            {/* <Positions /> */}
             <Help />
         </div>
     );

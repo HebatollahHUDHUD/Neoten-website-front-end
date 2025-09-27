@@ -33,11 +33,11 @@ const FAQs = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex items-center justify-center">
-      <p className="font-normal text-sm text-center my-10 max-w-lg">
+      {/* <p className="font-normal text-sm text-center my-10 max-w-lg">
         {t("fa")}
-        </p>
+        </p> */}
       </div>
-      <div className="space-y-4 mb-20 px-2 md:px-0">
+      <div className="space-y-4 mb-20 px-2 md:px-0 mt-16">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           return (

@@ -29,7 +29,7 @@ const Choose = () => {
       >
         <div className="absolute inset-0 bg-[#09192A] opacity-90"></div>
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12 text-white">
-          <p className="text-sm font-normal uppercase tracking-wide">{t("lifelong")}</p>
+          {/* <p className="text-sm font-normal uppercase tracking-wide">{t("lifelong")}</p> */}
           <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("why")}</h2>
 
           {/* تكرار العناصر مع تغيير التايتل والنص فقط */}

@@ -83,9 +83,9 @@ export default function ServiceTransport() {
             </div>
             </Link>
 
-            <p className="mt-3 text-lg font-normal text-center">
+            {/* <p className="mt-3 text-lg font-normal text-center">
               {t(getFirstWords(service.text, 19))}...
-            </p>
+            </p> */}
           </div>
         ))}
       </div>

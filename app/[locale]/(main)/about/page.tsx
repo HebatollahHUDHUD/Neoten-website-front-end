@@ -19,7 +19,7 @@ export default function About (){
             <OurValues />
             <History />
             <CEOMessage />
-            <Employees />
+            {/* <Employees /> */}
         </div>
     );
 }

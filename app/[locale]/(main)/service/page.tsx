@@ -8,7 +8,7 @@ export default function Service () {
             <PageHeader page="services"/>
             <ServiceTransport />
             <Choose />
-            <Testimonials />
+            {/* <Testimonials /> */}
         </div>
     );
 }

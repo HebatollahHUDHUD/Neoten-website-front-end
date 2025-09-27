@@ -111,9 +111,9 @@ export default function ServiceDetails() {
         <div className="relative w-full mt-6">
           <section className="mb-14 max-w-4xl mx-auto bg-[#E7EDF4] shadow-[#00000029] rounded-2xl py-8 px-10">
             <h1 className="font-bold text-3xl text-center uppercase max-w-xs mx-auto">{t("eager")}</h1>
-            <p className="font-semibold text-[#666666] text-sm text-center max-w-lg mx-auto pt-3">
+            {/* <p className="font-semibold text-[#666666] text-sm text-center max-w-lg mx-auto pt-3">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            </p> */}
             <form onSubmit={handleSubmit} className="space-y-4 mt-5">
         {/* Full Name */}
         <div>
