@@ -82,10 +82,9 @@ const Footer = () => {
         {t("our")}</p>
       <div className="flex flex-row justify-start gap-5">
   {[
-    { src: "/face.svg", alt: "facebook", w: 11, href: "https://facebook.com" },
-    { src: "/x.svg", alt: "x", w: 17, href: "https://x.com" },
-    { src: "/in.svg", alt: "instagram", w: 17, href: "https://instagram.com" },
-    { src: "/you.svg", alt: "youtube", w: 17, href: "https://youtube.com" }
+    { src: "/face.svg", alt: "facebook", w: 11, href: "https://www.facebook.com/Newton.Logistics/" },
+    { src: "/in.svg", alt: "instagram", w: 17, href: "https://www.instagram.com/newton.logistics/" },
+    { src: "/icons8-linkedin.svg", alt: "linkedin", w: 17, href: "https://jo.linkedin.com/company/newton-logistics-l-t-d" }
   ].map((icon, idx) => (
     <Link
       key={idx}

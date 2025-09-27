@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
 const NavBar = () => {
@@ -10,6 +10,7 @@ const NavBar = () => {
   const locale = useLocale();
   const isHome = pathname === `/${locale}` || pathname === "/";
   const [searchOpen, setSearchOpen] = useState(false);
+  const t = useTranslations();
 
   return (
     <div
@@ -36,21 +37,7 @@ const NavBar = () => {
           {/* Social Icons */}
           <div className="flex flex-row gap-4 border-x border-x-white py-3 px-5 place-items-center">
             <Link
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/you.svg"
-                alt="youtube"
-                width={20}
-                height={10}
-                quality={100}
-                className="cursor-pointer"
-              />
-            </Link>
-            <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/Newton.Logistics/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -64,7 +51,7 @@ const NavBar = () => {
               />
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/newton.logistics/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -77,11 +64,25 @@ const NavBar = () => {
                 className="cursor-pointer"
               />
             </Link>
+            <Link
+              href="https://jo.linkedin.com/company/newton-logistics-l-t-d"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/icons8-linkedin.svg"
+                alt="linkedin"
+                width={22}
+                height={10}
+                quality={100}
+                className="cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* Phone */}
           <Link
-            href="tel:0790000000"
+            href="tel: +962 7 9878 5992  "
             className="flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center"
           >
             <Image
@@ -92,12 +93,12 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white">0790000000</p>
+            <p className="font-normal text-sm text-white"> +962 7 9878 5992  </p>
           </Link>
 
           {/* Email */}
           <Link
-            href="mailto:Info@newton.com"
+            href="mailto:info@newtonlogistics.com"
             className="flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center"
           >
             <Image
@@ -108,7 +109,7 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white">Info@newton.com</p>
+            <p className="font-normal text-sm text-white">info@newtonlogistics.com</p>
           </Link>
         </div>
       </div>
@@ -122,7 +123,7 @@ const NavBar = () => {
         <div className="flex justify-center items-start h-full pt-80">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder={t("search")}
             className="w-11/12 md:w-1/3 p-4 bg-white text-black focus:outline-none"
           />
         </div>
