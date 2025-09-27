@@ -19,7 +19,7 @@ const NavBar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-row justify-end">
+        <div className="flex flex-row justify-center md:justify-end">
           {/* Search Icon */}
           <div
             className="border-x border-x-white p-3 place-items-center cursor-pointer"
@@ -93,7 +93,7 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white"> +962 7 9878 5992  </p>
+            <p className="font-normal text-sm text-white hidden md:block"> +962 7 9878 5992  </p>
           </Link>
 
           {/* Email */}
@@ -109,7 +109,7 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white">info@newtonlogistics.com</p>
+            <p className="font-normal text-sm text-white hidden md:block">info@newtonlogistics.com</p>
           </Link>
         </div>
       </div>

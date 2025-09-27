@@ -8,16 +8,16 @@ const LogisticsIntroduction = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch max-w-4xl mx-auto my-8">
       
-      <div className="flex flex-col col-span-1 justify-between text-center md:text-start">
+      <div className="flex flex-col col-span-1 md:max-w-sm justify-between text-center md:text-start">
         <div>
-          <h1 className="font-bold text-3xl max-w-sm">Logistics, Make The World Go Places</h1>
+          <h1 className="font-bold text-3xl">{t("logistics,")}</h1>
           <p className="font-semibold text-sm py-4">
             {t("t1")}
           </p>
-          <p className="font-normal text-xs max-w-sm">
+          <p className="font-normal text-xs">
             {t("t2")}
           </p>
-          <span className="font-normal text-xs pt-4 block max-w-sm">
+          <span className="font-normal text-xs pt-4 block ">
             {t("t3")}
           </span>
         </div>
