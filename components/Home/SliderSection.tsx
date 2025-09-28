@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 const slides = [
   {
     src: "/images/pic-1.jpg",
@@ -26,11 +27,14 @@ export default function HeroSlider() {
   };
 
 useEffect(() => {
-  const interval = setInterval(() => {
-    nextSlide(); 
-  }, 3000);
-  return () => clearInterval(interval);
+  if (slides.length > 1) {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(interval);
+  }
 }, []);
+
 
 
   return (
@@ -70,11 +74,13 @@ useEffect(() => {
 
   <div className={`absolute mt-64 flex items-center w-64 ${locale === "ar" ? "right-0" : "left-0"}`}>
     <div className="flex-1 border-t border-gray-400"></div>
+    <Link href="/service">
     <button className="relative w-16 h-16 bg-[#00A699] rounded-full hover:bg-[#008578] transition cursor-pointer">
     <p className={`absolute  bottom-5 font-normal text-white ${locale === "ar" ? "right-5" :"left-5"}`}>
         {t("explore")}
     </p>
     </button>
+    </Link>
   </div>
 </div>
 
@@ -83,6 +89,8 @@ useEffect(() => {
       </div>
 
       {/* Arrows */}
+      {slides.length > 1 && (
+        <>
       <button
         onClick={locale === "ar" ? nextSlide: prevSlide}
         className="absolute top-1/2 left-0 md:left-6 -translate-y-1/2 p-3 cursor-pointer transition"
@@ -107,8 +115,12 @@ useEffect(() => {
               quality={100}
               />
       </button>
+      </>
+      )}
 
       {/* Counter */}
+      {slides.length > 1 && (
+        <>
       <div className={`absolute bottom-6  bg-transparent flex items-end gap-2 ${locale === "ar" ? "left-6" : "right-6"}`}>
   <span className="text-white text-5xl font-bold leading-none">
     0{current + 1}
@@ -116,7 +128,9 @@ useEffect(() => {
   <span className="text-gray-400 text-lg leading-none">
     / 0{slides.length}
   </span>
-</div>
+    </div>
+    </>
+      )}
 
     </div>
   );

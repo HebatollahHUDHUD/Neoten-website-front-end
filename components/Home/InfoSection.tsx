@@ -32,11 +32,11 @@ const InfoSection = () => {
 
       <div className="relative">
         <div className="bg-[#99CBFC]/80 py-2"></div>
-        <div className="container py-10">
-          <div dir="ltr" className={`marquee ${isRTL ? "rtl" : ""}`}>
-            <ul className="marquee__track flex gap-6">
+        <div className="py-10">
+           <div dir="ltr" > {/*className={`marquee ${isRTL ? "rtl" : ""}`} */}
+             <ul className=" flex items-center w-full justify-center gap-16"> {/*marquee__track */}
               {infoItems.map((item, index) => (
-                <li key={index} className="shrink-0">
+                 <li key={index} > {/*className="shrink-0"*/}
                   <div className="flex flex-col items-center gap-2 justify-center">
                     <Image
                       src={item.icon}

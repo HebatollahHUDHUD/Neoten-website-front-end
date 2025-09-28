@@ -138,18 +138,18 @@ useEffect(() => {
 
       {/* Mobile drawer */}
       <div
-        className={`xl:hidden fixed inset-0 z-50 ${
+        className={`xl:hidden fixed inset-0 z-50   ${
           open ? "visible" : "invisible"
         }`}
         onClick={() => setOpen(false)}
       >
         <div
-          className={`fixed inset-0 bg-black/50 transition-opacity ${
-            open ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 bg-black/40  transition-opacity ${
+            open ? "opacity-100 " : "opacity-0"
           }`}
         />
         <div
-          className={`absolute right-0 top-0 h-11/12 w-72 bg-black/70 z-50 shadow-xl p-5 transition-transform ${
+          className={`absolute right-0 top-0 h-full w-72 bg-black/70  shadow-xl p-5 transition-transform ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}

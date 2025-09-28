@@ -78,7 +78,7 @@ const Footer = () => {
         quality={100}
         className="object-cover w-28"
       />
-      <p className="font-normal text-sm max-w-xl mx-auto text-center md:text-start">
+      <p className="font-normal text-sm max-w-[350px]  text-center md:text-start">
         {t("our")}</p>
       <div className="flex flex-row justify-start gap-5">
   {[
