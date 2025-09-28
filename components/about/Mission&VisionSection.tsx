@@ -35,7 +35,7 @@ export default function MissionVisionSection() {
             {/* العنوان + النص */}
             <div className="absolute bottom-0 left-0 w-full text-white text-center transition-all duration-300 group-hover:bottom-1/2 group-hover:translate-y-1/2">
             <div className="flex flex-col justify-end items-center">
-            <h3 className="font-bold text-3xl">{t(item.title)}</h3>
+            <h3 className="font-bold text-3xl cursor-pointer">{t(item.title)}</h3>
             <p className="font-semibold text-lg max-w-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {t(item.description)}
             </p>

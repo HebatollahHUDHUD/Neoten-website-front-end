@@ -52,7 +52,7 @@ const FAQs = () => {
             >
               <button
                 onClick={() => toggle(index)}
-                className={`w-full flex justify-between items-center py-2 text-left font-semibold text-2xl ${isOpen ? "text-white" : "text-black"}`}
+                className={`w-full flex justify-between items-center py-2 text-left font-semibold text-2xl cursor-pointer ${isOpen ? "text-white" : "text-black"}`}
               >
                 {t(faq.question)}
                 {isOpen ? <FiMinus size={20} color="white" /> : <FiPlus size={20} color="#747474" />}
