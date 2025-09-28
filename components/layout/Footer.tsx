@@ -25,7 +25,7 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm">+962 7 9878 5992</p>
+        <p className="font-normal text-sm hidden md:block">+962 7 9878 5992</p>
       </Link>
 
       {/* Email */}
@@ -43,7 +43,7 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm">info@newtonlogistics.com</p>
+        <p className="font-normal text-sm hidden md:block">info@newtonlogistics.com</p>
       </Link>
 
       {/* Location */}
@@ -63,7 +63,7 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm">{t("jordan")}</p>
+        <p className="font-normal text-sm hidden md:block">{t("jordan")}</p>
       </Link>
     </div>
         <div className="border-y-2 border-[#ADD5FF99] py-7 w-full order-1 md:order-2">
