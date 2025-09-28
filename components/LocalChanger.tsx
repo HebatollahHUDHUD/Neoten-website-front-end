@@ -62,7 +62,7 @@ const LocaleChanger = () => {
       type="button"
       onClick={handleChange}
       disabled={isPending}
-      className={`inline-flex items-center gap-1 text-smdisabled:opacity-50 cursor-pointer ${isHome ? scrolled ? "text-black": "text-white" : "text-black"}`}
+      className={`inline-flex items-center gap-1 text-smdisabled:opacity-50 cursor-pointer ${isHome ? scrolled ? "text-black": "text-white" : "text-white md:text-black"}`}
     >
       {isHome ? 
       scrolled ?

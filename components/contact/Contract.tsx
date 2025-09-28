@@ -25,7 +25,7 @@ const Contact = () => {
                       </div>
                       <div className="flex flex-col items-center pt-5">
                       <p className="font-medium text-lg">{t("phone-number")}</p>
-                      <p className="font-normal text-sm">+962 7 9878 5992</p>
+                      <p className="font-normal text-sm" dir="ltr">+962 7 9878 5992</p>
                       </div>
                       </div>
                       </Link>
@@ -46,7 +46,7 @@ const Contact = () => {
                       </div>
                       <div className="flex flex-col items-center pt-5">
                       <p className="font-medium text-lg">{t("email-address")}</p>
-                      <p className="font-normal text-sm">info@newtonlogistics.com</p>
+                      <p className="font-normal text-sm" dir="ltr">info@newtonlogistics.com</p>
                       </div>
                       </div>
                       </Link>
@@ -69,7 +69,7 @@ const Contact = () => {
                       </div>
                       <div className="flex flex-col items-center pt-5">
                       <p className="font-medium text-lg">{t("location")}</p>
-                      <p className="font-normal text-sm">Jordan - Amman</p>
+                      <p className="font-normal text-sm">{t("jordan")}</p>
                       </div>
                       </div>
                       </Link>

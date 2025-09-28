@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 type Value = {
@@ -9,63 +10,79 @@ type Value = {
 const values: Value[] = [
   {
     image: "/Path 285.svg",
-    title:"Integrity",
-    text: "We uphold the highest ethical standards and deliver on our commitments.",
+    title:"integrity",
+    text: "we-uphold",
   },
   {
     image: "/Path 285.svg",
-    title:"Excellence",
-    text: "We pursue continuous improvement and set benchmarks in service quality.",
+    title:"excellence",
+    text: "we-pursue",
   },
   {
     image: "/Path 285.svg",
-    title:"Client-Centricity",
-    text: "We place our clients’ success at the center of our strategies and operations.",
+    title:"client-centricity",
+    text: "we-place",
   },
   {
     image: "/Path 285.svg",
-    title:"Innovation",
-    text: "We leverage technology and forward-thinking approaches to anticipate and solve challenges.",
+    title:"innovation",
+    text: "we-leverage",
   },
   {
     image: "/Path 285.svg",
-    title:"Reliability",
-    text: "We provide consistent, dependable, and scalable logistics solutions.",
+    title:"reliability",
+    text: "we-provide",
   },
   {
     image: "/Path 285.svg",
-    title:"Sustainability",
-    text: "We promote responsible practices that reduce environmental impact and create long-term value.",
+    title:"sustainability",
+    text: "we-promote",
   },
   {
     image: "/Path 285.svg",
-    title:"Collaboration",
-    text: "We foster strong partnerships through teamwork, respect, and shared goals.",
+    title:"collaboration",
+    text: "we-foster",
+  },
+  {
+    image: "/Path 285.svg",
+    title: "efficiency",
+    text: "we-optimize",
   },
 ];
 
 export default function OurValues() {
+  const t = useTranslations();
+
   return (
     <section className="flex flex-col justify-center my-12">
-      <h1 className="font-bold text-4xl text-center mb-8">Our Values</h1>
+      <h1 className="font-bold text-4xl text-center mb-8">{t("our-values")}</h1>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center max-w-6xl mx-auto px-4">
         {values.map((value, idx) => (
           <div
             key={idx}
-            className="flex flex-col bordder shadow-[#00000029] shadow-xl w-full h-72 justify-center items-center text-center p-4"
+            className="flex flex-col bordder shadow-[#00000029] shadow-xl w-full h-80 justify-center items-center text-center p-6"
           >
-            <div className="rounded-full bg-[#E7F2F1] p-4 flex items-center justify-center mb-4">
+            {/* الصورة - ارتفاع ثابت */}
+            <div className="rounded-full bg-[#E7F2F1] p-5 flex items-center justify-center mb-2 h-24 w-24">
               <Image
                 src={value.image}
                 alt="value icon"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 className="object-contain"
               />
             </div>
-            <h1 className="font-bold text-lg">{value.title}</h1>
-            <p className="font-medium text-lg  max-w-52 mx-auto pt-2">{value.text}</p>
+            
+            {/* العنوان - محاذاة ثابتة */}
+            <h1 className="font-bold text-xl  min-h-[60px] flex items-center justify-center w-full">
+              {t(value.title)}
+            </h1>
+            
+            {/* النص - محاذاة ثابتة */}
+            <p className="font-medium text-base leading-relaxed min-h-[120px] flex items-start justify-center w-full">
+              {t(value.text)}
+            </p>
           </div>
         ))}
       </div>

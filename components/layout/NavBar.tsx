@@ -12,17 +12,22 @@ const NavBar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const t = useTranslations();
 
+  const isRTL = locale === "ar";
+
   return (
     <div
       className={`absolute top-0 left-0 right-0 z-50 w-full h-[45px] ${
         isHome ? "bg-transparent" : "bg-black"
       }`}
+      dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-row justify-center md:justify-end">
+        <div className={`flex flex-row ${isRTL ? "justify-center md:justify-start" : "justify-center md:justify-end"}`}>
           {/* Search Icon */}
           <div
-            className="border-x border-x-white p-3 place-items-center cursor-pointer"
+            className={`border-x border-x-white p-3 place-items-center cursor-pointer ${
+              isRTL ? "order-last" : "order-first"
+            }`}
             onClick={() => setSearchOpen(true)}
           >
             <Image
@@ -35,7 +40,9 @@ const NavBar = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex flex-row gap-4 border-x border-x-white py-3 px-5 place-items-center">
+          <div className={`flex flex-row gap-4 border-x border-x-white py-3 px-5 place-items-center ${
+            isRTL ? "order-3" : "order-2"
+          }`}>
             <Link
               href="https://www.facebook.com/Newton.Logistics/"
               target="_blank"
@@ -83,7 +90,9 @@ const NavBar = () => {
           {/* Phone */}
           <Link
             href="tel: +962 7 9878 5992  "
-            className="flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center"
+            className={`flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center ${
+              isRTL ? "order-2" : "order-3"
+            }`}
           >
             <Image
               src="/call.svg"
@@ -93,13 +102,17 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white hidden md:block"> +962 7 9878 5992  </p>
+            <p className="font-normal text-sm text-white hidden md:block" dir="ltr">
+              +962 7 9878 5992
+            </p>
           </Link>
 
           {/* Email */}
           <Link
             href="mailto:info@newtonlogistics.com"
-            className="flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center"
+            className={`flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center ${
+              isRTL ? "order-1" : "order-4"
+            }`}
           >
             <Image
               src="/mail.svg"
@@ -109,7 +122,9 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white hidden md:block">info@newtonlogistics.com</p>
+            <p className="font-normal text-sm text-white hidden md:block" dir="ltr">
+              info@newtonlogistics.com
+            </p>
           </Link>
         </div>
       </div>
@@ -119,17 +134,21 @@ const NavBar = () => {
         className={`fixed inset-0 bg-black/70 z-50 transform transition-transform duration-500 ${
           searchOpen ? "translate-y-0" : "-translate-y-full"
         }`}
+        dir={isRTL ? "rtl" : "ltr"}
       >
         <div className="flex justify-center items-start h-full pt-80">
           <input
             type="text"
             placeholder={t("search")}
             className="w-11/12 md:w-1/3 p-4 bg-white text-black focus:outline-none"
+            dir={isRTL ? "rtl" : "ltr"}
           />
         </div>
 
         <button
-          className="absolute top-5 right-5 text-white text-xl font-bold cursor-pointer"
+          className={`absolute top-5 text-white text-xl font-bold cursor-pointer ${
+            isRTL ? "left-5" : "right-5"
+          }`}
           onClick={() => setSearchOpen(false)}
         >
           ✕

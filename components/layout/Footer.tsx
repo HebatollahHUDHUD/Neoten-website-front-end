@@ -25,7 +25,7 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm hidden md:block">+962 7 9878 5992</p>
+        <p className="font-normal text-sm hidden md:block " dir="ltr">+962 7 9878 5992</p>
       </Link>
 
       {/* Email */}
@@ -43,7 +43,7 @@ const Footer = () => {
             className="object-contain"
           />
         </div>
-        <p className="font-normal text-sm hidden md:block">info@newtonlogistics.com</p>
+        <p className="font-normal text-sm hidden md:block" dir="ltr">info@newtonlogistics.com</p>
       </Link>
 
       {/* Location */}
