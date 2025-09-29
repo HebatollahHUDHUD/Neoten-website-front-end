@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Service, Services } from "@/schemas/shared";
 import { useGetData } from "@/hooks/useFetch";
+import ContactForm from "@/components/contact/ContactForm";
 
 export default function ServiceDetails({
   service,
@@ -79,106 +80,7 @@ export default function ServiceDetails({
 
         <p className="font-normal text-xl leading-7">{t("ee")}</p>
 
-        <div className="relative w-full mt-6">
-          <section className="mb-14 max-w-4xl mx-auto bg-[#E7EDF4] shadow-[#00000029] rounded-2xl py-8 px-10">
-            <h1 className="font-bold text-3xl text-center uppercase max-w-xs mx-auto">
-              {t("eager")}
-            </h1>
-            {/* <p className="font-semibold text-[#666666] text-sm text-center max-w-lg mx-auto pt-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p> */}
-            <form onSubmit={handleSubmit} className="space-y-4 mt-5">
-              {/* Full Name */}
-              <div>
-                <label
-                  htmlFor="fullName"
-                  className="block text-lg font-bold text-black"
-                >
-                  {t("full-name")}
-                </label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  placeholder={t("full-name")}
-                  required
-                  className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] shadow-sm  sm:text-sm p-3"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-lg font-bold text-black"
-                >
-                  {t("email-address")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder={t("email-address")}
-                  required
-                  className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] shadow-sm  sm:text-sm p-3"
-                />
-              </div>
-
-              {/* Subject */}
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-lg font-bold text-black"
-                >
-                  {t("subject")}
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder={t("subject")}
-                  required
-                  className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] sm:text-sm p-3"
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-lg font-bold text-black"
-                >
-                  {t("message")}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder={t("message")}
-                  rows={4}
-                  required
-                  className="mt-1 block w-full rounded-md bg-white text-[#CBCBCB] sm:text-sm p-3"
-                />
-              </div>
-
-              {/* Submit Button */}
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className="w-44 bg-[#0066CC] text-white py-2 px-4 rounded-md hover:bg-gray-800 transition cursor-pointer items-center"
-                >
-                  {t("submit")}
-                </button>
-              </div>
-            </form>
-
-            {/* رسالة نجاح */}
-            {submitted && (
-              <p className="text-green-600 font-medium mt-4">
-                ✅ Your message has been submitted successfully!
-              </p>
-            )}
-          </section>
-        </div>
+        <ContactForm inService />
       </div>
     </div>
   );
