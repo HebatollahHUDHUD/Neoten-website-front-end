@@ -13,20 +13,22 @@ import NavBar from "@/components/layout/NavBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { QueryProvider } from "@/providers/query";
+import { SearchParamsProvider } from "@/providers/search-params";
 export async function generateMetadata() {
-const t = await getTranslations();
-const metadata: Metadata = {
-  title: t("title"),
-  description: t("description"),
-  icons: {
+  const t = await getTranslations();
+  const metadata: Metadata = {
+    title: t("title"),
+    description: t("description"),
+    icons: {
       icon: "/images/Logo Icon.png",
     },
-};
-return metadata;
+  };
+  return metadata;
 }
 
 export default async function RootLayout({
- children,
+  children,
   params,
 }: {
   children: React.ReactNode;
@@ -40,18 +42,20 @@ export default async function RootLayout({
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <AOSInit />
       <FontProvider>
+        <QueryProvider>
+          <SearchParamsProvider>
             <NextIntlClientProvider>
-              <div
-              className={locale === "ar" ? "GE-Dinar" : "Poppins"}
-              >
-              <NavBar />
-              <Header />
+              <div className={locale === "ar" ? "GE-Dinar" : "Poppins"}>
+                <NavBar />
+                <Header />
                 {children}
                 <WhatsAppButton />
                 <Footer />
                 <Toaster position="top-right" reverseOrder={false} />
               </div>
             </NextIntlClientProvider>
+          </SearchParamsProvider>
+        </QueryProvider>
       </FontProvider>
     </html>
   );
