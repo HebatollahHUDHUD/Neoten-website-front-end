@@ -2,14 +2,16 @@
 
 @font-face {
   font-family: "GE-Dinar";
-  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Light.woff2") format("woff2");
+  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Light.woff2")
+    format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GE-Dinar";
-  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Medium.woff2") format("woff2");
+  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Medium.woff2")
+    format("woff2");
   font-weight: 500;
   font-style: normal;
 }
@@ -45,7 +47,7 @@ html[lang="en"] body {
 
 body {
   background: white;
-  overflow-x:hidden;
+  overflow-x: hidden;
   font-family: "Poppins", sans-serif !important;
 }
 
@@ -75,6 +77,10 @@ body {
 }
 .marquee:hover .marquee__track {
   animation-play-state: paused;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes marquee {

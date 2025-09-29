@@ -53,6 +53,7 @@ const infoSchema = z.object({
   website_logo: z.string().min(1),
   website_favicon: z.string().min(1),
   footer_content: z.string().min(1),
+  footer_logo: z.string().min(1),
   social_media_facebook_url: z.string().min(1),
   social_media_instagram_url: z.string().min(1),
   social_media_x_url: z.string().min(1),

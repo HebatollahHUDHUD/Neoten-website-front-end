@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useGetData } from "@/hooks/useFetch";
 import { Info } from "@/schemas/shared";
-const Contact = () => {
+const Contact = ({ contact }: { contact: any }) => {
   const t = useTranslations();
   const { data } = useGetData<Info>({
     endpoint: "/info",
@@ -16,14 +16,14 @@ const Contact = () => {
   return (
     <section className="my-14">
       <p className="font-semibold text-[#00A699] text-sm text-center uppercase">
-        {t("always")}
+        {contact?.contact_page_subtitle}
       </p>
+
       <h1 className="font-bold text-3xl text-center uppercase pt-2">
-        {t("get")}
+        {contact?.contact_page_desc}
       </h1>
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-14 lg:gap-10 pt-7 pb-14 order-2 md:order-1">
-        <a></a>
         <a
           href={`tel:+${info.mobile}`}
           className="flex flex-col gap-2 place-items-center"
@@ -72,7 +72,11 @@ const Contact = () => {
           </div>
         </a>
 
-        <div className="flex flex-col gap-2 place-items-center">
+        <a
+          href={info?.address_url}
+          className="flex flex-col gap-2 place-items-center"
+          target="_blank"
+        >
           <div className="flex flex-col gap-2 items-center justify-center border-white shadow-[#00000029] shadow-lg bg-white w-[280px] h-60">
             <div className="bg-[#E7F2F1] rounded-full w-20 h-20 place-items-center place-content-center">
               <Image
@@ -89,18 +93,15 @@ const Contact = () => {
               <p className="font-normal text-sm">{info.address}</p>
             </div>
           </div>
-        </div>
+        </a>
       </div>
 
-      <div className="max-w-3xl mx-auto h-[450px] px-2 md:px-0">
-        <iframe
-          src={info.map_url}
-          className="w-full h-full border-0"
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+      <div
+        className="max-w-3xl mx-auto h-[450px] px-2 md:px-0 [&>iframe]:w-full [&>iframe]:h-full [&>iframe]:border-0"
+        dangerouslySetInnerHTML={{
+          __html: info?.map_url,
+        }}
+      />
     </section>
   );
 };

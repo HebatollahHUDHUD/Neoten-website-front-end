@@ -8,7 +8,7 @@ import { useGetData } from "@/hooks/useFetch";
 const ContactContent = () => {
   const { data } = useGetData<any>({
     endpoint: "/pages/contact",
-    queryKey: ["ContactPage", "/pages/contact"],
+    queryKey: ["ContactPage"],
   });
 
   const contact = data?.status === "success" ? data?.result : null;
@@ -19,7 +19,8 @@ const ContactContent = () => {
         image={contact?.contact_page_banner}
         title={contact?.contact_page_title}
       />
-      <Contact />
+
+      <Contact contact={contact} />
       <ContactForm />
     </div>
   );

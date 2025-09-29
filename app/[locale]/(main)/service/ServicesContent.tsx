@@ -32,7 +32,7 @@ const ServicesContent = () => {
       />
 
       {!!services?.services?.length && (
-        <ServiceTransport services={services?.services} />
+        <ServiceTransport content={content} services={services?.services} />
       )}
 
       <Choose

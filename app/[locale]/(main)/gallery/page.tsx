@@ -1,12 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
-import PageHeader from "@/components/common/pageHeader";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useGetData } from "@/hooks/useFetch";
+import PageHead from "@/components/common/PageHead";
 
-// التوزيعة المحفوظة
 const layout = [
   "col-span-3",
   "col-span-1", // row 1
@@ -25,22 +24,38 @@ const layout = [
 ];
 
 export default function Gallery() {
-  const [active, setActive] = useState("All");
+  const t = useTranslations();
+  const { locale } = useParams<{ locale: string }>();
+
+  const [active, setActive] = useState<number | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(14);
-  const { locale } = useParams<{ locale: string }>();
-  const t = useTranslations();
 
   const { data } = useGetData<any>({
     endpoint: "/gallery",
     queryKey: ["Gallery"],
   });
 
+  const { data: contentData } = useGetData<any>({
+    endpoint: "/pages/gallery",
+    queryKey: ["GalleryPage"],
+  });
+
   const gallery = data?.status === "success" ? data?.result?.gallery_items : [];
+
   const categories =
     data?.status === "success" ? data?.result?.gallery_types : [];
 
-  const filtered = gallery;
+  const content =
+    contentData?.status === "success" ? contentData?.result : null;
+
+  const filtered = useMemo(() => {
+    if (active !== null) {
+      return gallery.filter((item: any) => item.type_id === active);
+    } else {
+      return gallery;
+    }
+  }, [active, gallery]);
 
   const handlePrev = () => {
     if (selectedIndex !== null) {
@@ -56,29 +71,44 @@ export default function Gallery() {
 
   return (
     <div>
-      <PageHeader page="gallery" />
+      <PageHead
+        image={content?.gallery_page_banner}
+        title={content?.gallery_page_title}
+      />
 
       <section className="container max-w-6xl mx-auto px-4 py-10">
-        {/* Tabs */}
-        {/* <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {categories.map((cat) => (
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
+          <button
+            onClick={() => {
+              setActive(null);
+              setVisibleCount(14);
+              setSelectedIndex(null);
+            }}
+            className={`px-5 py-3 w-64 font-semibold ${
+              !active ? "bg-[#0066CC] text-white" : "bg-none text-black"
+            }`}
+          >
+            {t("all")}
+          </button>
+
+          {categories.map((cat: any) => (
             <button
-              key={cat}
+              key={cat.id}
               onClick={() => {
-                setActive(cat);
+                setActive(cat.id);
                 setVisibleCount(14);
                 setSelectedIndex(null);
               }}
               className={`px-5 py-3 w-64 font-semibold ${
-                active === cat
+                active === cat.id
                   ? "bg-[#0066CC] text-white"
                   : "bg-none text-black"
               }`}
             >
-              {t(cat)}
+              {t(cat.name)}
             </button>
           ))}
-        </div> */}
+        </div>
 
         {/* Grid */}
         <div className="grid grid-cols-4 gap-4">

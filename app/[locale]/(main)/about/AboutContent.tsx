@@ -34,7 +34,9 @@ const AboutContent = () => {
 
       <LogisticsIntroduction content={content} />
 
-      <StatsSection stats={content.stats_2_items} />
+      <div className="mt-20">
+        <StatsSection stats={content.stats_2_items} />
+      </div>
 
       <MissionVisionSection content={content} />
 

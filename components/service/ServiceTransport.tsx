@@ -1,23 +1,22 @@
-import { Services } from "@/schemas/shared";
-import { useTranslations } from "next-intl";
+import { Services, ServicesPage } from "@/schemas/shared";
 
 import Link from "next/link";
 import Image from "../image";
 
 export default function ServiceTransport({
   services,
+  content,
 }: {
   services: Services["services"];
+  content: ServicesPage;
 }) {
-  const t = useTranslations();
-
   return (
     <section className="max-w-5xl mx-auto py-10 px-3 md:px-0">
       <p className="text-sm font-semibold text-[#00A699] text-center">
-        {t("always")}
+        {content.services_page_title}
       </p>
       <h1 className="text-4xl font-bold text-center max-w-lg mx-auto">
-        {t("logistics")}
+        {content.services_page_desc}
       </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-10 justify-center">

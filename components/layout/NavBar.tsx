@@ -100,8 +100,8 @@ const NavBar = () => {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/icons8-aedin.svg"
-                  alt="aedin"
+                  src="/icons8-linkedin.svg"
+                  alt="linkedin"
                   width={22}
                   height={10}
                   quality={100}
