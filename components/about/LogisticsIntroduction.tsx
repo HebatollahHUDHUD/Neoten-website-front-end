@@ -1,70 +1,49 @@
 "use client";
+import { About } from "@/schemas/shared";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-const LogisticsIntroduction = () => {
+const LogisticsIntroduction = ({ content }: { content: About }) => {
   const { locale } = useParams<{ locale: string }>();
   const t = useTranslations();
+
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch max-w-4xl mx-auto my-8">
-      
       <div className="flex flex-col col-span-1 md:max-w-sm justify-between text-center md:text-start">
         <div>
-          <h1 className="font-bold text-3xl">{t("logistics,")}</h1>
+          <h1 className="font-bold text-3xl">
+            {content.about_page_main_section_title || t("logistics,")}
+          </h1>
           <p className="font-semibold text-sm py-4">
-            {t("t1")}
+            {content.about_page_main_section_subtitle || t("t1")}
           </p>
-          <p className="font-normal text-xs">
-            {t("t2")}
-          </p>
-          <span className="font-normal text-xs pt-4 block ">
-            {t("t3")}
-          </span>
-        </div>
 
-        {/* <div className="flex flex-row justify-between gap-5 py-5">
-          <div className="flex flex-col gap-2 items-center md:items-start">
-            <Image
-              src="/images/Rectangle 145.png"
-              alt="call"
-              width={40}
-              height={20}
-              quality={100}
-              className="object-contain"
-            />
-            <h1 className="font-bold text-lg text-start">Secure Packaging</h1>
-            <p className="font-normal text-sm">Lorem ipsum dolor sit elit consectur sed tempor..</p>
-          </div>
-          <div className="flex flex-col gap-2 items-center md:items-start">
-            <Image
-              src="/images/Rectangle 146.png"
-              alt="call"
-              width={40}
-              height={20}
-              quality={100}
-              className="object-contain"
-            />
-            <h1 className="font-bold text-lg text-start">Delivery Unlimited</h1>
-            <p className="font-normal text-sm">Lorem ipsum dolor sit elit consectur sed tempor..</p>
-          </div>
-        </div> */}
+          <p className="font-normal text-xs whitespace-pre-line">
+            {content.about_page_main_section_desc || t("t2")}
+          </p>
+        </div>
       </div>
 
       <div className="relative col-span-1 flex justify-center items-center">
-
         <div className="w-full aspect-[3/3] relative">
           <Image
-            src="/images/Rectangle 144.png"
-            alt=""
+            src={content.about_page_main_section_image}
+            alt={content.about_page_main_section_title}
             fill
             className="object-cover"
             priority
           />
         </div>
 
- <div className={`absolute -bottom-10 md:-bottom-16 
-    ${locale === "ar" ? "left-8 lg:-left-20 xl:-left-40" : "right-8 lg:-right-20 xl:-right-40"}
-  `}>
+        <div
+          className={`absolute -bottom-10 md:-bottom-16 
+    ${
+      locale === "ar"
+        ? "left-8 lg:-left-20 xl:-left-40"
+        : "right-8 lg:-right-20 xl:-right-40"
+    }
+  `}
+        >
           <Image
             src="/images/Rectangle 147.png"
             alt="white box"
@@ -77,7 +56,7 @@ const LogisticsIntroduction = () => {
           {/* اللوجو داخل البوكس */}
           <div className="absolute inset-0 flex justify-center items-center">
             <Image
-              src="/Group 4461.svg" 
+              src="/Group 4461.svg"
               alt="logo"
               width={200}
               height={80}
@@ -85,9 +64,7 @@ const LogisticsIntroduction = () => {
             />
           </div>
         </div>
-
       </div>
-
     </section>
   );
 };

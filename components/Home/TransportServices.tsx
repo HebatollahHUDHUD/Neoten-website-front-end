@@ -4,6 +4,7 @@ import { Home } from "@/schemas/shared";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import StatsSection from "../about/StatsSection";
 
 export default function TransportServices({ content }: { content: Home }) {
   const t = useTranslations();
@@ -64,14 +65,7 @@ export default function TransportServices({ content }: { content: Home }) {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-0 bg-[#0066CC] text-white py-10 max-w-6xl mx-auto">
-        {content?.stats_2_items?.map((stat, idx) => (
-          <div key={idx} className="text-center">
-            <p className="text-2xl md:text-3xl font-bold">{stat.value}</p>
-            <p className="text-sm md:text-base font-normal">{stat.title}</p>
-          </div>
-        ))}
-      </div>
+      <StatsSection stats={content.stats_2_items} />
     </section>
   );
 }

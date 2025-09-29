@@ -99,6 +99,14 @@ const whyUsItemsSchema = z.array(
   })
 );
 
+const stats_2_itemsSchema = z.array(
+  z.object({ value: z.string(), title: z.string() })
+);
+
+const stats_itemsSchema = z.array(
+  z.object({ icon: z.string(), title: z.string(), subtitle: z.string() })
+);
+
 const homeSchema = z.object({
   home_page_services_subtitle: z.string(),
   home_page_services_title: z.string(),
@@ -107,10 +115,8 @@ const homeSchema = z.object({
 
   stats_background: z.string(),
 
-  stats_items: z.array(
-    z.object({ icon: z.string(), title: z.string(), subtitle: z.string() })
-  ),
-  stats_2_items: z.array(z.object({ value: z.string(), title: z.string() })),
+  stats_items: stats_itemsSchema,
+  stats_2_items: stats_2_itemsSchema,
 
   why_us_background: z.string(),
   why_us_image: z.string(),
@@ -173,6 +179,52 @@ const faqsSchema = z.object({
   ),
 });
 
+const aboutSchema = z.object({
+  reviews_title: z.string(),
+  reviews_subtitle: z.string(),
+  stats_background: z.string(),
+  stats_items: stats_itemsSchema,
+  stats_2_items: stats_2_itemsSchema,
+  about_page_title: z.string(),
+  about_page_banner: z.string(),
+  about_page_main_section_title: z.string(),
+  about_page_main_section_subtitle: z.string(),
+  about_page_main_section_desc: z.string(),
+  about_page_main_section_image: z.string(),
+  about_page_main_section_items: z.any(),
+  about_page_our_vision_title: z.string(),
+  about_page_our_vision_desc: z.string(),
+  about_page_our_vision_image: z.string(),
+  about_page_our_mission_title: z.string(),
+  about_page_our_mission_desc: z.string(),
+  about_page_our_mission_image: z.string(),
+  about_page_our_values_title: z.string(),
+  about_page_our_values_items: z.array(
+    z.object({
+      title: z.string(),
+      desc: z.string(),
+    })
+  ),
+  about_page_our_history_title: z.string(),
+  about_page_our_history_subtitle: z.string(),
+  about_page_our_history_items: z.array(
+    z.object({
+      year: z.string(),
+      title: z.string(),
+      desc: z.string(),
+      image: z.string(),
+    })
+  ),
+  about_page_speech_title: z.string(),
+  about_page_speech_desc: z.string(),
+  about_page_speech_image: z.string(),
+  about_page_speech_quote: z.string(),
+  about_page_speech_signature: z.string(),
+  about_page_our_team_title: z.string(),
+  about_page_our_team_subtitle: z.string(),
+  team_members: [],
+});
+
 export type Home = z.infer<typeof homeSchema>;
 export type ServicesPage = z.infer<typeof servicesPageSchema>;
 export type Services = z.infer<typeof services>;
@@ -180,3 +232,4 @@ export type Service = z.infer<typeof service>;
 export type Info = z.infer<typeof infoSchema>;
 export type User = z.infer<typeof userSchema>;
 export type Faqs = z.infer<typeof faqsSchema>;
+export type About = z.infer<typeof aboutSchema>;
