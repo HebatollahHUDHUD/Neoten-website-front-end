@@ -1,15 +1,17 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-export default function Help() {
+export default function Help({ content }: { content: any }) {
   const t = useTranslations();
   return (
     <section className="bg-[#00A699] h-36 flex items-center">
       <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-start max-w-6xl mx-auto w-full px-4">
         <div className="flex flex-col text-white">
-          <h1 className="font-bold text-lg uppercase">{t("need")}</h1>
+          <h1 className="font-bold text-lg uppercase">
+            {content?.need_help_title || t("need")}
+          </h1>
           <p className="font-normal text-xs">
-            {t("assistance")}
+            {content?.need_help_subtitle || t("assistance")}
           </p>
         </div>
         <Link href="/contact">

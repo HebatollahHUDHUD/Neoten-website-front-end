@@ -1,17 +1,28 @@
-import AboutCareer from "@/components/career/AboutCareer";
-import Help from "@/components/career/Help";
-import Positions from "@/components/career/Position";
-import WhyWork from "@/components/career/Why-Work";
-import PageHeader from "@/components/common/pageHeader";
+import { createHeaders } from "@/lib/createHeaders";
+import { getData } from "@/lib/request-server";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { cookies } from "next/headers";
+import CareerContent from "./CareerContent";
 
-export default function Career (){
-    return(
-        <div>
-            <PageHeader page="career" />
-            <AboutCareer />
-            <WhyWork />
-            {/* <Positions /> */}
-            <Help />
-        </div>
-    );
+export default async function Career() {
+  const cookieStore = await cookies();
+  const headers = createHeaders(cookieStore);
+  const queryClient = new QueryClient();
+
+  const endpoint = "/pages/career";
+
+  await queryClient.prefetchQuery({
+    queryKey: ["CareerPage", endpoint],
+    queryFn: () => getData({ endpoint, config: { headers } }),
+  });
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <CareerContent />
+    </HydrationBoundary>
+  );
 }
