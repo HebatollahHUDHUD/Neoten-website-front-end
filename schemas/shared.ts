@@ -163,9 +163,20 @@ const service = z.object({
   service: serviceSchema,
 });
 
+const faqsSchema = z.object({
+  faqs: z.array(
+    z.object({
+      id: z.number(),
+      question: z.string(),
+      answer: z.string(),
+    })
+  ),
+});
+
 export type Home = z.infer<typeof homeSchema>;
 export type ServicesPage = z.infer<typeof servicesPageSchema>;
 export type Services = z.infer<typeof services>;
 export type Service = z.infer<typeof service>;
 export type Info = z.infer<typeof infoSchema>;
 export type User = z.infer<typeof userSchema>;
+export type Faqs = z.infer<typeof faqsSchema>;
