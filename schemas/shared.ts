@@ -92,6 +92,13 @@ const serviceSchema = z.object({
 
 const servicesSchema = z.array(serviceSchema);
 
+const whyUsItemsSchema = z.array(
+  z.object({
+    title: z.string(),
+    desc: z.string(),
+  })
+);
+
 const homeSchema = z.object({
   home_page_services_subtitle: z.string(),
   home_page_services_title: z.string(),
@@ -108,18 +115,27 @@ const homeSchema = z.object({
   why_us_background: z.string(),
   why_us_image: z.string(),
 
-  why_us_items: z.array(
-    z.object({
-      title: z.string(),
-      desc: z.string(),
-    })
-  ),
+  why_us_items: whyUsItemsSchema,
 
   why_us_subtitle: z.string(),
   why_us_title: z.string(),
   slides: homeSilds,
   services: servicesSchema,
   reviews: z.array(ReviewSchema),
+});
+
+const servicesPageSchema = z.object({
+  reviews_subtitle: z.string(),
+  reviews_title: z.string(),
+  services_page_banner: z.string(),
+  services_page_desc: z.string(),
+  services_page_subtitle: z.string(),
+  services_page_title: z.string(),
+  why_us_background: z.string(),
+  why_us_image: z.string(),
+  why_us_items: whyUsItemsSchema,
+  why_us_subtitle: z.string(),
+  why_us_title: z.string(),
 });
 
 const userSchema = z.object({
@@ -139,6 +155,17 @@ const userSchema = z.object({
   updated_at: z.string(),
 });
 
+const services = z.object({
+  services: servicesSchema,
+});
+
+const service = z.object({
+  service: serviceSchema,
+});
+
 export type Home = z.infer<typeof homeSchema>;
+export type ServicesPage = z.infer<typeof servicesPageSchema>;
+export type Services = z.infer<typeof services>;
+export type Service = z.infer<typeof service>;
 export type Info = z.infer<typeof infoSchema>;
 export type User = z.infer<typeof userSchema>;

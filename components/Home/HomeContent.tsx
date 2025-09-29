@@ -23,7 +23,13 @@ const HomeContent = () => {
       <Slider slides={content.slides} />
       <InfoSection content={content} />
       <TransportServices content={content} />
-      <Choose content={content} />
+      <Choose
+        why_us_background={content.why_us_background}
+        why_us_image={content.why_us_image}
+        why_us_title={content.why_us_title}
+        why_us_subtitle={content.why_us_subtitle}
+        why_us_items={content.why_us_items}
+      />
       {/* <Testimonials /> */}
     </div>
   );
