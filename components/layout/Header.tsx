@@ -93,7 +93,7 @@ export default function Header() {
                 width={120}
                 height={100}
                 quality={100}
-                className="object-contain"
+                className="object-contain w-20 md:w-28 lg:w-32"
               />
             </Link>
           ) : (
@@ -105,7 +105,7 @@ export default function Header() {
                 height={100}
                 quality={100}
                 priority
-                className="object-cover"
+                className="object-cover w-24 md:w-32 lg:w-36"
               />
             </Link>
           )
@@ -117,7 +117,7 @@ export default function Header() {
               width={120}
               height={100}
               quality={100}
-              className="object-contain"
+              className="object-contain w-20 md:w-28 lg:w-32"
             />
           </Link>
         )}
