@@ -43,7 +43,7 @@ const CEOMessage = ({ content }: { content: About }) => {
               {content.about_page_speech_title}
             </h1>
           </div>
-          <p className="font-normal text-sm py-5">
+          <p className="font-normal text-sm whitespace-pre-line py-5">
             {content.about_page_speech_desc}
           </p>
         </div>
