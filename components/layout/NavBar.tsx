@@ -160,7 +160,7 @@ const NavBar = () => {
       </div>
 
       {/* Search Overlay */}
-      <div
+      {/* <div
         className={`fixed inset-0 bg-black/70 z-50 transform transition-transform duration-500 ${
           searchOpen ? "translate-y-0" : "-translate-y-full"
         }`}
@@ -183,7 +183,7 @@ const NavBar = () => {
         >
           ✕
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

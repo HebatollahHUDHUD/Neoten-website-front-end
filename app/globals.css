@@ -38,17 +38,17 @@
 }
 
 html[lang="ar"] body {
-  font-family: "GE-Dinar", sans-serif;
+  font-family: "GE-Dinar", sans-serif !important;
 }
 
 html[lang="en"] body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 body {
   background: white;
   overflow-x: hidden;
-  font-family: "Poppins", sans-serif !important;
+  /* font-family: "Poppins", sans-serif !important; */
 }
 
 .marquee {
