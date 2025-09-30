@@ -16,7 +16,7 @@ const InfoSection = ({ content }: { content: Home }) => {
         <div className="py-10">
           <div>
             {/*className={`marquee ${isRTL ? "rtl" : ""}`} */}
-            <ul className=" flex items-center w-full justify-center gap-16">
+            <ul className=" flex items-center w-full justify-center gap-16 px-4 md:px-0">
               {content?.stats_items?.map((item, index) => (
                 <li key={index}>
                   <div className="flex flex-col items-center gap-2 justify-center">

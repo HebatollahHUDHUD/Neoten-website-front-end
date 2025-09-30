@@ -23,9 +23,9 @@ const Footer = () => {
           {/* Phone */}
           <a
             href={"tel:+" + info?.mobile}
-            className="flex flex-col gap-2 place-items-center"
+            className="flex flex-col gap-2 justify-center items-center"
           >
-            <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
+            <div className="bg-[#00A699] rounded-full w-16 h-16 flex justify-center items-center">
               <Image
                 src="/call.svg"
                 alt="call"
@@ -43,9 +43,9 @@ const Footer = () => {
           {/* Email */}
           <a
             href={"mailto:" + info?.email}
-            className="flex flex-col gap-2 place-items-center"
+            className="flex flex-col gap-2 justify-center items-center"
           >
-            <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
+            <div className="bg-[#00A699] rounded-full w-16 h-16 flex justify-center items-center">
               <Image
                 src="/mail.svg"
                 alt="mail"
@@ -65,9 +65,9 @@ const Footer = () => {
             href={info?.address_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col gap-2 place-items-center"
+            className="flex flex-col gap-2 justify-center items-center"
           >
-            <div className="bg-[#00A699] rounded-full w-16 h-16 place-items-center place-content-center">
+            <div className="bg-[#00A699] rounded-full w-16 h-16 flex justify-center items-center">
               <Image
                 src="/location.svg"
                 alt="location"
@@ -232,7 +232,7 @@ const Footer = () => {
         </div>
 
         <div className="order-3">
-          <p className="pt-5 font-normal text-sm text-center">
+          <p className="pt-5 font-normal text-sm text-center px-4 md:px-0">
             © 2025 Newton. All Rights Reserved. Powered by HUDHUD IT
           </p>
         </div>

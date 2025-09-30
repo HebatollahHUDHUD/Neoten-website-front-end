@@ -38,7 +38,7 @@ const CEOMessage = ({ content }: { content: About }) => {
 
       <div className="col-span-1 flex justify-center items-center">
         <div className="bg-[#00A699] text-white text-start  w-full aspect-[4/3] px-10 py-14">
-          <div className="border-s-4 border-s-white pl-7 -ml-10">
+          <div className="border-s-4 border-s-white ps-7 -ms-10">
             <h1 className="font-bold text-3xl max-w-xs">
               {content.about_page_speech_title}
             </h1>
