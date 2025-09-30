@@ -13,7 +13,7 @@ export default function ServiceTransport({
   return (
     <section className="max-w-5xl mx-auto py-10 px-3 md:px-0">
       <p className="text-sm font-semibold text-[#00A699] text-center">
-        {content.services_page_title}
+        {content.services_page_subtitle}
       </p>
       <h1 className="text-4xl font-bold text-center max-w-lg mx-auto">
         {content.services_page_desc}

@@ -51,7 +51,7 @@ export default function Gallery() {
 
   const filtered = useMemo(() => {
     if (active !== null) {
-      return gallery.filter((item: any) => item.type_id === active);
+      return gallery.filter((item: any) => item?.gallery_type?.id === active);
     } else {
       return gallery;
     }

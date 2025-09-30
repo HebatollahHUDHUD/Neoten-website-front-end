@@ -182,12 +182,11 @@ const Footer = () => {
                 {t("company")}
               </p>
               <ul className="flex flex-col gap-2">
-                {["about", "team", "terms", "privacy"].map((item) => {
-                  const href = item === "team" ? "/about#team" : `/${item}`;
+                {["about", "terms", "privacy"].map((item) => {
                   return (
                     <li key={item}>
                       <Link
-                        href={href}
+                        href={`/${item}`}
                         className={`font-normal text-sm hover:border-[#ADD5FF99] transition-all ${
                           locale === "ar"
                             ? "border-r-0 hover:border-r-2 pr-0 hover:pr-3"

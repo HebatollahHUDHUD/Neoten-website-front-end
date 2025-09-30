@@ -38,7 +38,7 @@ const NavBar = () => {
           }`}
         >
           {/* Search Icon */}
-          <div
+          {/* <div
             className={`border-x border-x-white p-3 place-items-center cursor-pointer ${
               isRTL ? "order-last" : "order-first"
             }`}
@@ -51,7 +51,7 @@ const NavBar = () => {
               height={10}
               quality={100}
             />
-          </div>
+          </div> */}
 
           {/* Social Icons */}
           <div
