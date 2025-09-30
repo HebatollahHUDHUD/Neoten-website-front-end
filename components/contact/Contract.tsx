@@ -29,7 +29,7 @@ const Contact = ({ contact }: { contact: any }) => {
           className="flex flex-col gap-2 place-items-center"
         >
           <div className="flex flex-col gap-2 items-center justify-center border-white shadow-[#00000029] shadow-lg bg-white w-[280px] h-60">
-            <div className="bg-[#E7F2F1] rounded-full w-20 h-20 place-items-center place-content-center">
+            <div className="bg-[#E7F2F1] rounded-full w-20 h-20 flex justify-center items-center">
               <Image
                 src="/Path 291.svg"
                 alt="call"
@@ -53,7 +53,7 @@ const Contact = ({ contact }: { contact: any }) => {
           className="flex flex-col gap-2 place-items-center"
         >
           <div className="flex flex-col gap-2 items-center justify-center border-white shadow-[#00000029] shadow-lg bg-white w-[280px] h-60">
-            <div className="bg-[#E7F2F1] rounded-full w-20 h-20 place-items-center place-content-center">
+            <div className="bg-[#E7F2F1] rounded-full w-20 h-20 flex justify-center items-center">
               <Image
                 src="/Path 292.svg"
                 alt="call"
@@ -78,7 +78,7 @@ const Contact = ({ contact }: { contact: any }) => {
           target="_blank"
         >
           <div className="flex flex-col gap-2 items-center justify-center border-white shadow-[#00000029] shadow-lg bg-white w-[280px] h-60">
-            <div className="bg-[#E7F2F1] rounded-full w-20 h-20 place-items-center place-content-center">
+            <div className="bg-[#E7F2F1] rounded-full w-20 h-20 flex justify-center items-center">
               <Image
                 src="/Path 290.svg"
                 alt="call"
