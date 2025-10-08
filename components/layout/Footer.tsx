@@ -35,7 +35,10 @@ const Footer = () => {
                 className="object-contain"
               />
             </div>
-            <p className="font-normal text-sm hidden md:block " dir="ltr">
+            <p
+              className="font-normal text-sm md:text-base hidden md:block "
+              dir="ltr"
+            >
               {info?.mobile}
             </p>
           </a>
@@ -55,7 +58,10 @@ const Footer = () => {
                 className="object-contain"
               />
             </div>
-            <p className="font-normal text-sm hidden md:block" dir="ltr">
+            <p
+              className="font-normal text-sm md:text-base hidden md:block"
+              dir="ltr"
+            >
               {info?.email}
             </p>
           </a>
@@ -77,7 +83,7 @@ const Footer = () => {
                 className="object-contain"
               />
             </div>
-            <p className="font-normal text-sm hidden md:block">
+            <p className="font-normal text-sm md:text-base hidden md:block">
               {info?.address}
             </p>
           </a>
@@ -93,7 +99,7 @@ const Footer = () => {
                 quality={100}
                 className="object-cover w-28"
               />
-              <p className="font-normal text-sm max-w-[350px]  text-center md:text-start">
+              <p className="font-normal text-sm md:text-base max-w-[350px]  text-center md:text-start">
                 {info?.footer_content}
               </p>
               <div className="flex flex-row justify-start gap-5">
@@ -155,7 +161,7 @@ const Footer = () => {
 
             {/* Site Map */}
             <div className="flex flex-col justify-start items-center md:items-start gap-5 col-span-1">
-              <p className="font-medium text-lg text-[#00A699]">
+              <p className="font-semibold text-lg text-[#00A699]">
                 {t("site-map")}
               </p>
               <ul className="flex flex-col gap-2">
@@ -163,7 +169,7 @@ const Footer = () => {
                   <li key={item}>
                     <Link
                       href={`/${item}`}
-                      className={`font-normal text-sm hover:border-[#ADD5FF99] transition-all ${
+                      className={`font-semibold text-sm md:text-base hover:border-[#ADD5FF99] transition-all ${
                         locale === "ar"
                           ? "border-r-0 hover:border-r-2 pr-0 hover:pr-3"
                           : "border-l-0 hover:border-l-2 pl-0 hover:pl-3"
@@ -178,7 +184,7 @@ const Footer = () => {
 
             {/* Company */}
             <div className="flex flex-col justify-start items-center md:items-start gap-5 col-span-1">
-              <p className="font-medium text-lg text-[#00A699]">
+              <p className="font-semibold text-lg text-[#00A699]">
                 {t("company")}
               </p>
               <ul className="flex flex-col gap-2">
@@ -187,7 +193,7 @@ const Footer = () => {
                     <li key={item}>
                       <Link
                         href={`/${item}`}
-                        className={`font-normal text-sm hover:border-[#ADD5FF99] transition-all ${
+                        className={`font-semibold text-sm md:text-base hover:border-[#ADD5FF99] transition-all ${
                           locale === "ar"
                             ? "border-r-0 hover:border-r-2 pr-0 hover:pr-3"
                             : "border-l-0 hover:border-l-2 pl-0 hover:pl-3"
@@ -203,7 +209,7 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div className="flex flex-col justify-start items-center md:items-start gap-5 col-span-1 sm:col-span-2 md:col-span-1">
-              <p className="font-medium text-lg text-[#00A699]">
+              <p className="font-semibold text-lg text-[#00A699]">
                 {t("newsletter")}
               </p>
               <div className="relative w-full xl:w-72">
@@ -217,7 +223,7 @@ const Footer = () => {
                   } rounded-md`}
                 />
                 <button
-                  className={`absolute top-0 h-full bg-[#00A699] px-4 font-semibold text-xs cursor-pointer ${
+                  className={`absolute top-0 h-full bg-[#00A699] px-4 font-semibold text-sm md:text-base cursor-pointer ${
                     locale === "ar"
                       ? "left-0 rounded-e-md"
                       : "right-0 rounded-e-md"
@@ -231,7 +237,7 @@ const Footer = () => {
         </div>
 
         <div className="order-3">
-          <p className="pt-5 font-normal text-sm text-center px-4 md:px-0">
+          <p className="pt-5 font-normal text-sm md:text-base text-center px-4 md:px-0">
             © 2025 Newton. All Rights Reserved. Powered by HUDHUD IT
           </p>
         </div>

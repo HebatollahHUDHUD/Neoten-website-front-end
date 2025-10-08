@@ -10,7 +10,7 @@ export default function Help({ content }: { content: any }) {
           <h1 className="font-bold text-lg uppercase">
             {content?.need_help_title || t("need")}
           </h1>
-          <p className="font-normal text-xs">
+          <p className="font-normal text-sm md:text-base">
             {content?.need_help_subtitle || t("assistance")}
           </p>
         </div>

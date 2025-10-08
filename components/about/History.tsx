@@ -14,7 +14,7 @@ export default function History({ content }: { content: About }) {
       {/* Header */}
       <div className="bg-[#0066CC] max-w-4xl mx-auto text-white p-10 flex flex-col items-center justify-between">
         <div>
-          <p className=" font-normal text-xs text-center pb-2 ">
+          <p className=" font-normal text-sm md:text-base text-center pb-2 ">
             {content.about_page_our_history_subtitle}
           </p>
 

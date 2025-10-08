@@ -35,7 +35,7 @@ const WhyWork = ({ content }: { content: any }) => {
                 <h2 className="font-bold text-lg md:text-xl text-white mt-4">
                   {item.title}
                 </h2>
-                <p className="font-normal text-xs text-white mt-2 max-w-52">
+                <p className="font-normal text-sm md:text-base text-white mt-2 max-w-52">
                   {item.desc}
                 </p>
               </li>

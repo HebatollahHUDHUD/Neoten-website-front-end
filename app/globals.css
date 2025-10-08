@@ -37,8 +37,31 @@
   font-style: normal;
 }
 
+/* ------------------------- */
+
+@font-face {
+  font-family: "bhaijaan";
+  src: url("/assets/fonts/bhaijaan/regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bhaijaan";
+  src: url("/assets/fonts/bhaijaan/medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bhaijaan";
+  src: url("/assets/fonts/bhaijaan/bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
 html[lang="ar"] body {
-  font-family: "GE-Dinar", sans-serif !important;
+  font-family: "bhaijaan", sans-serif !important;
 }
 
 html[lang="en"] body {

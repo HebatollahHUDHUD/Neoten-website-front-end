@@ -15,7 +15,7 @@ export default function TransportServices({ content }: { content: Home }) {
         <h2 className="text-2xl md:text-3xl font-bold max-w-2xl">
           {content?.home_page_services_title || t("we")}
         </h2>
-        <p className="font-normal text-xs md:text-sm max-w-lg mt-3 md:mt-0 md:ps-10">
+        <p className="font-normal text-sm md:text-base max-w-lg mt-3 md:mt-0 md:ps-10">
           {content?.home_page_services_subtitle || t("at")}
         </p>
       </div>

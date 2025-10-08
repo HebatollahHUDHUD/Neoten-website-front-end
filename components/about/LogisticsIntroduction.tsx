@@ -14,11 +14,11 @@ const LogisticsIntroduction = ({ content }: { content: About }) => {
           <h1 className="font-bold text-3xl">
             {content.about_page_main_section_title || t("logistics,")}
           </h1>
-          <p className="font-semibold text-sm py-4">
+          <p className="font-semibold text-sm md:text-base py-4">
             {content.about_page_main_section_subtitle || t("t1")}
           </p>
 
-          <p className="font-normal text-xs whitespace-pre-line">
+          <p className="font-normal text-sm md:text-base whitespace-pre-line">
             {content.about_page_main_section_desc || t("t2")}
           </p>
         </div>
