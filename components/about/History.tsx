@@ -1,11 +1,17 @@
 "use client";
 
-import { About } from "@/schemas/shared";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { About } from "@/schemas/shared";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { ChevronLeft } from "lucide-react";
+import { NavigationOptions } from "swiper/types";
 
 export default function History({ content }: { content: About }) {
-  const [activeIdx, setActiveIdx] = useState<number>(0);
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
 
   const activeData = content.about_page_our_history_items[activeIdx];
 
@@ -42,20 +48,52 @@ export default function History({ content }: { content: About }) {
       </div>
 
       {/* Stats Section */}
-      <div className="flex  bg-[#0066CC] text-white  max-w-4xl mx-auto overflow-x-auto hide-scrollbar">
-        {content.about_page_our_history_items.map((item, idx) => (
-          <button
-            key={item.year}
-            onClick={() => setActiveIdx(idx)}
-            className={`shrink-0 md:min-w-[200px] text-white py-10 px-8 transition cursor-pointer ${
-              activeIdx === idx
-                ? "bg-[#00A699] text-3xl font-bold"
-                : "bg-[#0066CC] hover:bg-[#00A699] font-semibold text-lg"
-            }`}
-          >
-            {item.year}
-          </button>
-        ))}
+      <div className="bg-[#0066CC] text-white max-w-4xl mx-auto relative">
+        <button
+          ref={prevRef}
+          className="cursor-pointer absolute top-1/2 -translate-y-1/2 -start-12 bg-gray-100 hover:bg-[#00A699] text-gray-400 hover:text-white rounded-full w-10 h-10 flex items-center justify-center"
+        >
+          <ChevronLeft className="rtl:rotate-180" />
+        </button>
+
+        <button
+          ref={nextRef}
+          className="cursor-pointer absolute top-1/2 -translate-y-1/2 -end-12 bg-gray-100 hover:bg-[#00A699] text-gray-400 hover:text-white rounded-full w-10 h-10 flex items-center justify-center"
+        >
+          <ChevronLeft className="rotate-180 rtl:rotate-0" />
+        </button>
+
+        {/* === Swiper === */}
+        <Swiper
+          modules={[Navigation]}
+          slidesPerView={"auto"}
+          className="gallery-swiper"
+          onBeforeInit={(swiper) => {
+            const navigation = swiper.params.navigation as NavigationOptions;
+            navigation.prevEl = prevRef.current;
+            navigation.nextEl = nextRef.current;
+          }}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          freeMode
+        >
+          {content.about_page_our_history_items.map((item, idx) => (
+            <SwiperSlide key={item.year} className="!shrink !h-auto">
+              <button
+                onClick={() => setActiveIdx(idx)}
+                className={`md:min-w-[200px] h-full text-white py-10 px-8 transition cursor-pointer ${
+                  activeIdx === idx
+                    ? "bg-[#00A699] text-3xl font-bold"
+                    : "bg-[#0066CC] hover:bg-[#00A699] font-semibold text-lg"
+                }`}
+              >
+                {item.year}
+              </button>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

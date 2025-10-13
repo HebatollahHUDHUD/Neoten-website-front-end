@@ -1,5 +1,12 @@
-import type { Metadata } from "next";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "../globals.css";
+
+import type { Metadata } from "next";
+
 import AOSInit from "@/components/AOSInit";
 import { Toaster } from "react-hot-toast";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -11,8 +18,6 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import NavBar from "@/components/layout/NavBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { QueryProvider } from "@/providers/query";
 import { SearchParamsProvider } from "@/providers/search-params";
 import { cookies } from "next/headers";

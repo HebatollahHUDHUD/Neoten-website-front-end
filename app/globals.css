@@ -106,6 +106,33 @@ body {
   display: none;
 }
 
+/* === Swiper Navigation Buttons === */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  color: #fff !important; /* main purple color */
+  background-color: #a0a0a0;
+  border-radius: 9999px; /* fully rounded */
+  width: 42px;
+  height: 42px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+/* change the arrow icons inside */
+.gallery-swiper .swiper-button-next .swiper-navigation-icon,
+.gallery-swiper .swiper-button-prev .swiper-navigation-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* hover effects */
+.gallery-swiper .swiper-button-next:hover,
+.gallery-swiper .swiper-button-prev:hover {
+  background-color: #7d34fe;
+  color: #fff !important;
+  transform: scale(1.05);
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
