@@ -9,9 +9,10 @@ const WhyWork = ({ content }: { content: any }) => {
     <section
       className="relative bg-fixed bg-center bg-cover"
       style={{
-        backgroundImage:
+        backgroundImage: `url(${
           content?.career_page_why_work_with_us_banner ||
-          "url('/images/Rectangle 21482.png')",
+          "/images/Rectangle 21482.png"
+        } )`,
       }}
     >
       <div className="absolute inset-0 bg-[#09192A]/70"></div>
