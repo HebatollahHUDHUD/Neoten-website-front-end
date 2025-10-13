@@ -10,7 +10,7 @@ export default function StatsSection({
       {stats?.map((stat, idx) => (
         <div key={idx} className="text-center">
           <p className="text-2xl md:text-3xl font-bold">{stat.value}</p>
-          <p className="text-sm md:text-base font-normal">{stat.title}</p>
+          <p className="text-base md:text-lg font-normal">{stat.title}</p>
         </div>
       ))}
     </div>

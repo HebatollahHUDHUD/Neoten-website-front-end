@@ -71,7 +71,7 @@ export default function Header() {
           isHome
             ? scrolled
               ? "bg-white text-black top-0"
-              : "bg-black/20 text-white top-[45px]"
+              : "bg-black/40 text-white top-[45px]"
             : scrolled
             ? "bg-white text-black top-0"
             : "bg-white text-black top-[45px]"

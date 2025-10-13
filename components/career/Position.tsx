@@ -79,7 +79,7 @@ const OpenPositions = () => {
                   {job.id.toString().padStart(2, "0")}
                 </div>
                 <h3 className="mt-4 font-bold text-lg">{job.title}</h3>
-                <p className="font-normal text-sm md:text-base mt-2 mb-4 text-start">
+                <p className="font-normal text-base md:text-lg mt-2 mb-4 text-start">
                   {getFirstWords(job.description, 19)}...
                 </p>
                 <Link

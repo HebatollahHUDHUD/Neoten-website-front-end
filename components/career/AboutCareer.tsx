@@ -13,10 +13,10 @@ export default function AboutCareer({ content }: { content: any }) {
           <h1 className="font-bold text-3xl md:max-w-xs">
             {content?.career_page_subtitle || t("together")}
           </h1>
-          <p className="font-normal text-sm md:text-base py-4">
+          <p className="font-normal text-base md:text-lg py-4">
             {content?.career_page_desc || t("at-newton")}
           </p>
-          <span className="font-normal text-sm md:text-base  block"></span>
+          <span className="font-normal text-base md:text-lg  block"></span>
         </div>
       </div>
 
