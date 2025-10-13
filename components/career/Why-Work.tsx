@@ -8,7 +8,11 @@ const WhyWork = ({ content }: { content: any }) => {
   return (
     <section
       className="relative bg-fixed bg-center bg-cover"
-      style={{ backgroundImage: "url('/images/Rectangle 21482.png')" }}
+      style={{
+        backgroundImage:
+          content?.career_page_why_work_with_us_banner ||
+          "url('/images/Rectangle 21482.png')",
+      }}
     >
       <div className="absolute inset-0 bg-[#09192A]/70"></div>
 
@@ -27,7 +31,7 @@ const WhyWork = ({ content }: { content: any }) => {
               >
                 <Image
                   src={item.image}
-                  alt=""
+                  alt={item.title}
                   width={100}
                   height={100}
                   className="h-14 w-auto object-contain"
