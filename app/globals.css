@@ -2,14 +2,16 @@
 
 @font-face {
   font-family: "GE-Dinar";
-  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Light.woff2") format("woff2");
+  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Light.woff2")
+    format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GE-Dinar";
-  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Medium.woff2") format("woff2");
+  src: url("/assets/fonts/GE-Dinar/ArbFONTS-GE-Dinar-One-Medium.woff2")
+    format("woff2");
   font-weight: 500;
   font-style: normal;
 }
@@ -35,18 +37,41 @@
   font-style: normal;
 }
 
+/* ------------------------- */
+
+@font-face {
+  font-family: "bhaijaan";
+  src: url("/assets/fonts/bhaijaan/regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bhaijaan";
+  src: url("/assets/fonts/bhaijaan/medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bhaijaan";
+  src: url("/assets/fonts/bhaijaan/bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
 html[lang="ar"] body {
-  font-family: "GE-Dinar", sans-serif;
+  font-family: "bhaijaan", sans-serif !important;
 }
 
 html[lang="en"] body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 body {
   background: white;
-  overflow-x:hidden;
-  font-family: "Poppins", sans-serif !important;
+  overflow-x: hidden;
+  /* font-family: "Poppins", sans-serif !important; */
 }
 
 .marquee {
@@ -75,6 +100,37 @@ body {
 }
 .marquee:hover .marquee__track {
   animation-play-state: paused;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* === Swiper Navigation Buttons === */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  color: #fff !important; /* main purple color */
+  background-color: #a0a0a0;
+  border-radius: 9999px; /* fully rounded */
+  width: 42px;
+  height: 42px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+/* change the arrow icons inside */
+.gallery-swiper .swiper-button-next .swiper-navigation-icon,
+.gallery-swiper .swiper-button-prev .swiper-navigation-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* hover effects */
+.gallery-swiper .swiper-button-next:hover,
+.gallery-swiper .swiper-button-prev:hover {
+  background-color: #7d34fe;
+  color: #fff !important;
+  transform: scale(1.05);
 }
 
 @keyframes marquee {

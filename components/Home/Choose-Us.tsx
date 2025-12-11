@@ -1,19 +1,26 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-const featuresData = [
-  { title: "what", text: "your" },
-  { title: "when", text: "you" },
-  { title: "wher", text: "the" },
-];
+import { Home } from "@/schemas/shared";
 
-const Choose = () => {
+const Choose = ({
+  why_us_title,
+  why_us_subtitle,
+  why_us_image,
+  why_us_background,
+  why_us_items,
+}: {
+  why_us_title: string;
+  why_us_subtitle: string;
+  why_us_image: string;
+  why_us_background: string;
+  why_us_items: Home["why_us_items"];
+}) => {
   const t = useTranslations();
   return (
     <section className="grid grid-cols-1 md:grid-cols-2">
-      {/* الصورة الثابتة */}
       <div className="col-span-1 relative w-full h-[32rem] sm:h-[35rem]">
         <Image
-          src="/images/Rectangle 137.png"
+          src={why_us_image}
           alt="Rectangle 137"
           fill
           className="object-cover"
@@ -22,21 +29,26 @@ const Choose = () => {
         />
       </div>
 
-      {/* الخلفية + المحتوى */}
       <div
         className="col-span-1 relative w-full h-[32rem] sm:h-[35rem] bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: "url('/images/Rectangle 132.png')" }}
+        style={{ backgroundImage: `url('${why_us_background}')` }}
       >
         <div className="absolute inset-0 bg-[#09192A] opacity-90"></div>
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12 text-white">
-          {/* <p className="text-sm font-normal uppercase tracking-wide">{t("lifelong")}</p> */}
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("why")}</h2>
+          {why_us_subtitle && (
+            <p className="text-sm font-normal uppercase tracking-wide">
+              {why_us_subtitle || t("lifelong")}
+            </p>
+          )}
+
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            {why_us_title || t("why")}
+          </h2>
 
           {/* تكرار العناصر مع تغيير التايتل والنص فقط */}
           <div className="grid grid-cols-2 gap-y-6 gap-x-8">
-            {featuresData.map((feature, i) => (
+            {why_us_items?.map((feature, i) => (
               <div key={i} className="flex items-start gap-3">
-                {/* الأيقونة الثابتة */}
                 <Image
                   src="/images/Path 282.png"
                   alt=""
@@ -47,7 +59,9 @@ const Choose = () => {
                 />
                 <div>
                   <h3 className="font-bold text-lg">{t(feature.title)}</h3>
-                  <p className="text-sm font-normal max-w-52 mx-auto">{t(feature.text)}</p>
+                  <p className="text-sm font-normal max-w-52 mx-auto">
+                    {feature.desc}
+                  </p>
                 </div>
               </div>
             ))}

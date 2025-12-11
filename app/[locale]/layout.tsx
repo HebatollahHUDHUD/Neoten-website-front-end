@@ -1,5 +1,12 @@
-import type { Metadata } from "next";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "../globals.css";
+
+import type { Metadata } from "next";
+
 import AOSInit from "@/components/AOSInit";
 import { Toaster } from "react-hot-toast";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -11,22 +18,39 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import NavBar from "@/components/layout/NavBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { QueryProvider } from "@/providers/query";
+import { SearchParamsProvider } from "@/providers/search-params";
+import { cookies } from "next/headers";
+import { createHeaders } from "@/lib/createHeaders";
+import { Info } from "@/schemas/shared";
+import { getData } from "@/lib/request-server";
+
 export async function generateMetadata() {
-const t = await getTranslations();
-const metadata: Metadata = {
-  title: t("title"),
-  description: t("description"),
-  icons: {
-      icon: "/images/Logo Icon.png",
+  const cookieStore = await cookies();
+  const headers = createHeaders(cookieStore);
+  const res = await getData<Info>({ endpoint: "/info", config: { headers } });
+  const t = await getTranslations();
+
+  const info = res.status === "success" ? res.result : null;
+
+  const metadata: Metadata = {
+    title: info?.website_name || t("title"),
+    description: info?.website_desc || t("description"),
+    openGraph: {
+      title: info?.website_name || t("title"),
+      description: info?.website_desc || t("description"),
     },
-};
-return metadata;
+
+    icons: {
+      icon: info?.website_favicon || "/images/Logo Icon.png",
+    },
+  };
+
+  return metadata;
 }
 
 export default async function RootLayout({
- children,
+  children,
   params,
 }: {
   children: React.ReactNode;
@@ -40,18 +64,20 @@ export default async function RootLayout({
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <AOSInit />
       <FontProvider>
+        <QueryProvider>
+          <SearchParamsProvider>
             <NextIntlClientProvider>
-              <div
-              className={locale === "ar" ? "GE-Dinar" : "Poppins"}
-              >
-              <NavBar />
-              <Header />
+              <div className={locale === "ar" ? "GE-Dinar" : "Poppins"}>
+                <NavBar />
+                <Header />
                 {children}
                 <WhatsAppButton />
                 <Footer />
                 <Toaster position="top-right" reverseOrder={false} />
               </div>
             </NextIntlClientProvider>
+          </SearchParamsProvider>
+        </QueryProvider>
       </FontProvider>
     </html>
   );

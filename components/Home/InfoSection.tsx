@@ -1,53 +1,44 @@
-"use client";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+import { Home } from "@/schemas/shared";
+import Image from "../image";
 
-const infoItems = [
-  {
-    icon: "/images/Rectangle 121.png",
-    text: "sunday",
-  },
-  {
-    icon: "/images/Rectangle 125.png",
-    text: "industrial",
-  },
-  {
-    icon: "/images/Rectangle 129.png",
-    text: "international",
-  },
-];
-
-const InfoSection = () => {
-  const t = useTranslations();
-  const { locale } = useParams<{ locale: string }>();
-  const isRTL = locale === "ar";
-
+const InfoSection = ({ content }: { content: Home }) => {
   return (
     <section
-      className="relative bg-fixed bg-center bg-cover"
-      style={{ backgroundImage: "url('/images/5c6d76b502d389f5b8feb6209d326f06.png')" }} 
+      className="relative bg-fixed bg-center bg-cover bg-"
+      style={{
+        backgroundImage: `url('${content.stats_background}')`,
+      }}
     >
       <div className="absolute inset-0 bg-[#C0DAF5]/80"></div>
 
       <div className="relative">
         <div className="bg-[#99CBFC]/80 py-2"></div>
         <div className="py-10">
-           <div dir="ltr" > {/*className={`marquee ${isRTL ? "rtl" : ""}`} */}
-             <ul className=" flex items-center w-full justify-center gap-16"> {/*marquee__track */}
-              {infoItems.map((item, index) => (
-                 <li key={index} > {/*className="shrink-0"*/}
+          <div>
+            {/*className={`marquee ${isRTL ? "rtl" : ""}`} */}
+            <ul className=" flex items-center w-full justify-center gap-16 px-4 md:px-0">
+              {content?.stats_items?.map((item, index) => (
+                <li key={index}>
                   <div className="flex flex-col items-center gap-2 justify-center">
                     <Image
                       src={item.icon}
-                      alt=""
+                      alt={item.title}
                       width={100}
                       height={28}
                       className="h-14 object-contain"
                     />
-                    <p className="font-medium text-center text-lg text-[#1D428A] mb-4 max-w-xs">
-                      {t(item.text)}
-                    </p>
+
+                    <div>
+                      <p className="font-medium text-center text-lg text-[#1D428A] max-w-xs">
+                        {item.title}
+                      </p>
+
+                      {item.subtitle && (
+                        <p className="font-medium text-center text-[#1D428A] opacity-80 mt-4 max-w-xs">
+                          {item.subtitle}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </li>
               ))}

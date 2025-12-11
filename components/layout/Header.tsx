@@ -7,12 +7,15 @@ import { FiMenu, FiX } from "react-icons/fi";
 import LocaleChanger from "../LocalChanger";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { useGetData } from "@/hooks/useFetch";
+import { Info } from "@/schemas/shared";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+
   const t = useTranslations();
   const locale = useLocale();
   const pathname = usePathname();
@@ -54,6 +57,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
 
+  const { data } = useGetData<Info>({
+    endpoint: "/info",
+    queryKey: ["Info", "/info"],
+  });
+
+  const info = data?.status === "success" ? data?.result : null;
   return (
     <header
       className={`fixed left-0 right-0 z-40 transition-transform duration-300 w-full shadow py-5 border-y border-white
@@ -62,7 +71,7 @@ export default function Header() {
           isHome
             ? scrolled
               ? "bg-white text-black top-0"
-              : "bg-transparent text-white top-[45px]"
+              : "bg-black/40 text-white top-[45px]"
             : scrolled
             ? "bg-white text-black top-0"
             : "bg-white text-black top-[45px]"
@@ -79,36 +88,36 @@ export default function Header() {
           scrolled ? (
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/Group 13.svg"
+                src={info?.website_logo || "/Group 13.svg"}
                 alt=" Newton"
                 width={120}
                 height={100}
                 quality={100}
-                className="object-contain"
+                className="object-contain w-20 md:w-28 lg:w-32"
               />
             </Link>
           ) : (
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/images/Logo.png"
+                src={info?.footer_logo || "/images/Logo.png"}
                 alt=" Newton"
                 width={150}
                 height={100}
                 quality={100}
                 priority
-                className="object-cover"
+                className="object-cover w-24 md:w-32 lg:w-36"
               />
             </Link>
           )
         ) : (
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/Group 13.svg"
+              src={info?.website_logo || "/Group 13.svg"}
               alt=" Newton"
               width={120}
               height={100}
               quality={100}
-              className="object-contain"
+              className="object-contain w-20 md:w-28 lg:w-32"
             />
           </Link>
         )}
@@ -120,7 +129,9 @@ export default function Header() {
               key={item.label}
               href={item.href}
               className={`font-normal text-lg hover:border-b-2 hover:uppercase transition duration-300 ease-in-out inline-flex items-center ${
-                isHome && !scrolled ? "hover:border-b-white" : "hover:border-b-black"
+                isHome && !scrolled
+                  ? "hover:border-b-white"
+                  : "hover:border-b-black"
               }`}
             >
               {item.label}
@@ -155,7 +166,7 @@ export default function Header() {
             open ? "opacity-100" : "opacity-0"
           }`}
         />
-        
+
         {/* المحتوى الرئيسي - على اليمين */}
         <div
           className={`absolute top-0 right-0 h-full w-80 bg-black/95 shadow-xl transition-transform ${

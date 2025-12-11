@@ -1,25 +1,30 @@
-import CEOMessage from "@/components/about/CEOMessage";
-import Employees from "@/components/about/Emplyees";
-import History from "@/components/about/History";
-import LogisticsIntroduction from "@/components/about/LogisticsIntroduction";
-import MissionVisionSection from "@/components/about/Mission&VisionSection";
-import OurValues from "@/components/about/OurValues";
-import StatsSection from "@/components/about/StatsSection";
-import PageHeader from "@/components/common/pageHeader";
-import InfoSection from "@/components/Home/InfoSection";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { createHeaders } from "@/lib/createHeaders";
+import { getData } from "@/lib/request-server";
+import { cookies } from "next/headers";
+import AboutContent from "./AboutContent";
 
-export default function About (){
-    return(
-        <div>
-            <PageHeader page="about" />
-            <InfoSection />
-            <LogisticsIntroduction />
-            <StatsSection />
-            <MissionVisionSection />
-            <OurValues />
-            <History />
-            <CEOMessage />
-            {/* <Employees /> */}
-        </div>
-    );
+export default async function FAQsPage() {
+  const cookieStore = await cookies();
+  const headers = createHeaders(cookieStore);
+  const queryClient = new QueryClient();
+
+  const endpoint = "/pages/about";
+
+  await queryClient.prefetchQuery({
+    queryKey: ["AboutPage", endpoint],
+    queryFn: () => getData({ endpoint, config: { headers } }),
+  });
+
+  return (
+    <div>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <AboutContent />
+      </HydrationBoundary>
+    </div>
+  );
 }

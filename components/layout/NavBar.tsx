@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
+import { useGetData } from "@/hooks/useFetch";
+import { Info } from "@/schemas/shared";
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -14,17 +15,30 @@ const NavBar = () => {
 
   const isRTL = locale === "ar";
 
+  const { data } = useGetData<Info>({
+    endpoint: "/info",
+    queryKey: ["Info", "/info"],
+  });
+
+  const info = data?.status === "success" ? data?.result : null;
+
   return (
     <div
       className={`absolute top-0 left-0 right-0 z-50 w-full h-[45px] ${
-        isHome ? "bg-transparent" : "bg-black"
+        isHome ? "bg-black/40" : "bg-black"
       }`}
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="max-w-6xl mx-auto">
-        <div className={`flex flex-row ${isRTL ? "justify-center md:justify-start" : "justify-center md:justify-end"}`}>
+        <div
+          className={`flex flex-row ${
+            isRTL
+              ? "justify-center md:justify-start"
+              : "justify-center md:justify-end"
+          }`}
+        >
           {/* Search Icon */}
-          <div
+          {/* <div
             className={`border-x border-x-white p-3 place-items-center cursor-pointer ${
               isRTL ? "order-last" : "order-first"
             }`}
@@ -37,59 +51,69 @@ const NavBar = () => {
               height={10}
               quality={100}
             />
-          </div>
+          </div> */}
 
           {/* Social Icons */}
-          <div className={`flex flex-row gap-4 border-x border-x-white py-3 px-5 place-items-center ${
-            isRTL ? "order-3" : "order-2"
-          }`}>
-            <Link
-              href="https://www.facebook.com/Newton.Logistics/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/face.svg"
-                alt="facebook"
-                width={11}
-                height={10}
-                quality={100}
-                className="cursor-pointer"
-              />
-            </Link>
-            <Link
-              href="https://www.instagram.com/newton.logistics/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/Path 56.svg"
-                alt="instagram"
-                width={20}
-                height={10}
-                quality={100}
-                className="cursor-pointer"
-              />
-            </Link>
-            <Link
-              href="https://jo.linkedin.com/company/newton-logistics-l-t-d"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/icons8-linkedin.svg"
-                alt="linkedin"
-                width={22}
-                height={10}
-                quality={100}
-                className="cursor-pointer"
-              />
-            </Link>
+          <div
+            className={`flex flex-row gap-4 border-x border-x-white py-3 px-5 place-items-center ${
+              isRTL ? "order-3" : "order-2"
+            }`}
+          >
+            {info?.social_media_facebook_url && (
+              <a
+                href={info?.social_media_facebook_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/face.svg"
+                  alt="facebook"
+                  width={11}
+                  height={10}
+                  quality={100}
+                  className="cursor-pointer"
+                />
+              </a>
+            )}
+
+            {info?.social_media_instagram_url && (
+              <a
+                href={info?.social_media_instagram_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/Path 56.svg"
+                  alt="instagram"
+                  width={20}
+                  height={10}
+                  quality={100}
+                  className="cursor-pointer"
+                />
+              </a>
+            )}
+
+            {info?.social_media_linkedin_url && (
+              <a
+                href={info?.social_media_linkedin_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/icons8-linkedin.svg"
+                  alt="linkedin"
+                  width={22}
+                  height={10}
+                  quality={100}
+                  className="cursor-pointer"
+                />
+              </a>
+            )}
           </div>
 
           {/* Phone */}
-          <Link
-            href="tel: +962 7 9878 5992  "
+          <a
+            href={"tel:+" + info?.mobile}
             className={`flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center ${
               isRTL ? "order-2" : "order-3"
             }`}
@@ -102,14 +126,17 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white hidden md:block" dir="ltr">
-              +962 7 9878 5992
+            <p
+              className="font-normal text-sm text-white hidden md:block"
+              dir="ltr"
+            >
+              {info?.mobile}
             </p>
-          </Link>
+          </a>
 
           {/* Email */}
-          <Link
-            href="mailto:info@newtonlogistics.com"
+          <a
+            href={"mailto:" + info?.email}
             className={`flex flex-row gap-3 border-x border-x-white py-3 px-5 place-items-center ${
               isRTL ? "order-1" : "order-4"
             }`}
@@ -122,15 +149,18 @@ const NavBar = () => {
               quality={100}
               className="object-contain"
             />
-            <p className="font-normal text-sm text-white hidden md:block" dir="ltr">
-              info@newtonlogistics.com
+            <p
+              className="font-normal text-sm text-white hidden md:block"
+              dir="ltr"
+            >
+              {info?.email}
             </p>
-          </Link>
+          </a>
         </div>
       </div>
 
       {/* Search Overlay */}
-      <div
+      {/* <div
         className={`fixed inset-0 bg-black/70 z-50 transform transition-transform duration-500 ${
           searchOpen ? "translate-y-0" : "-translate-y-full"
         }`}
@@ -153,7 +183,7 @@ const NavBar = () => {
         >
           ✕
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
